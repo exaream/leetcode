@@ -61,9 +61,46 @@ func fizzBuzz(n int) []string {
 			str = strconv.Itoa(i)
 		}
 
-        res[i-1] = str
+		res[i-1] = str
 	}
 
     return res
+}
+```
+
+## 1342. Number of Steps to Reduce a Number to Zero
+```go
+func numberOfSteps(num int) int {
+    if num <= 0 {
+		return 0
+    }
+
+	res := 0
+	for num > 0 {
+		if num%2 == 0 {
+			num /= 2
+		} else {
+			num--
+		}
+
+		res++
+	}
+
+	return res
+}
+```
+```go
+func numberOfSteps(num int) int {
+	if num == 0 {
+		return 0
+	}
+
+	res := 0
+	for num > 0 {
+		res += num&1 + 1
+		num >>= 1
+	}
+
+	return res - 1
 }
 ```
