@@ -71,9 +71,9 @@ func fizzBuzz(n int) []string {
 ## 1342. Number of Steps to Reduce a Number to Zero
 ```go
 func numberOfSteps(num int) int {
-    if num <= 0 {
+	if num <= 0 {
 		return 0
-    }
+	}
 
 	res := 0
 	for num > 0 {
@@ -89,6 +89,7 @@ func numberOfSteps(num int) int {
 	return res
 }
 ```
+
 ```go
 func numberOfSteps(num int) int {
 	if num == 0 {
