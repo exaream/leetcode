@@ -3,7 +3,7 @@
 ## 2235. Add Two Integers
 ```go
 func sum(num1 int, num2 int) int {
-    return num1 + num2
+	return num1 + num2
 }
 ```
 
@@ -46,7 +46,7 @@ func maximumWealth(accounts [][]int) int {
 ## 412. Fizz Buzz
 ```go
 func fizzBuzz(n int) []string {
-    res := make([]string, n)
+	res := make([]string, n)
 
 	for i := 1; i <= n; i++ {
 		var str string
@@ -64,7 +64,7 @@ func fizzBuzz(n int) []string {
 		res[i-1] = str
 	}
 
-    return res
+	return res
 }
 ```
 
