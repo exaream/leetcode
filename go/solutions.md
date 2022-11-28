@@ -11,7 +11,7 @@ func sum(num1 int, num2 int) int {
 ## 1480. Running Sum of 1D Array
 ```go
 func runningSum(nums []int) []int {
-    numsLen := len(nums)
+	numsLen := len(nums)
 	res := make([]int, numsLen)
 	res[0] = nums[0]
 
