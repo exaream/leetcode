@@ -105,3 +105,45 @@ func numberOfSteps(num int) int {
 	return res - 1
 }
 ```
+
+## 876. Middle of The Linked List
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func middleNode(head *ListNode) *ListNode {
+	tmp := make([]*ListNode, 0)
+
+	for head != nil {
+		tmp = append(tmp, head)
+		head = head.Next
+	}
+
+	return tmp[len(tmp)/2]
+}
+```
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func middleNode(head *ListNode) *ListNode {
+	middle, end := head, head
+
+	for end != nil && end.Next != nil {
+		middle = middle.Next
+		end = end.Next.Next
+	}
+
+	return middle
+}
+```
