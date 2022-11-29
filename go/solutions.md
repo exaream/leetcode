@@ -1,6 +1,8 @@
 # LeetCode Solutions made of Go
 
+
 ## 2235. Add Two Integers
+
 ```go
 func sum(num1 int, num2 int) int {
 	return num1 + num2
@@ -9,6 +11,7 @@ func sum(num1 int, num2 int) int {
 
 
 ## 1480. Running Sum of 1D Array
+
 ```go
 func runningSum(nums []int) []int {
 	numsLen := len(nums)
@@ -25,6 +28,7 @@ func runningSum(nums []int) []int {
 
 
 ## 1672. Richest Customer Wealth
+
 ```go
 func maximumWealth(accounts [][]int) int {
 	maxWealth := 0
@@ -44,6 +48,7 @@ func maximumWealth(accounts [][]int) int {
 ```
 
 ## 412. Fizz Buzz
+
 ```go
 func fizzBuzz(n int) []string {
 	res := make([]string, n)
@@ -68,7 +73,9 @@ func fizzBuzz(n int) []string {
 }
 ```
 
+
 ## 1342. Number of Steps to Reduce a Number to Zero
+
 ```go
 func numberOfSteps(num int) int {
 	if num <= 0 {
@@ -105,6 +112,7 @@ func numberOfSteps(num int) int {
 	return res - 1
 }
 ```
+
 
 ## 876. Middle of The Linked List
 
@@ -145,5 +153,27 @@ func middleNode(head *ListNode) *ListNode {
 	}
 
 	return middle
+}
+```
+
+
+## 383. Ransom Note
+
+```go
+func canConstruct(ransomNote string, magazine string) bool {
+	alphabet := make([]int, 26)
+
+	for _, v := range magazine {
+		alphabet[v-'a']++
+	}
+
+	for _, v := range ransomNote {
+		if alphabet[v-'a'] == 0 {
+			return false
+		}
+		alphabet[v-'a']--
+	}
+
+	return true
 }
 ```
