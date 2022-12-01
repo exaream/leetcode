@@ -182,6 +182,23 @@ func canConstruct(ransomNote string, magazine string) bool {
 
 ## 1. Two Sum
 
+brute force
+```go
+func twoSum(nums []int, target int) []int {
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[i]+nums[j] == target {
+				return []int{i, j}
+			}
+		}
+
+	}
+
+	return nil
+}
+```
+
+hashmap
 ```go
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
