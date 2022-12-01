@@ -276,3 +276,22 @@ func romanToInt(s string) int {
 	return total
 }
 ```
+
+
+## 14. Longest Common Prefix
+
+Runtime 0 ms, Memory 2.4 MB
+```go
+func longestCommonPrefix(strs []string) string {
+	res := strs[0]
+
+	for _, str := range strs[1:] {
+		i := 0
+		for ; i < len(str) && i < len(res) && res[i] == str[i]; i++ {
+		}
+		res = res[:i]
+	}
+
+	return res
+}
+```
