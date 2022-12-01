@@ -32,19 +32,19 @@ func runningSum(nums []int) []int {
 
 ```go
 func maximumWealth(accounts [][]int) int {
-	maxWealth := 0
+	max := 0
 
 	for _, customer := range accounts {
-		curWealth := 0
+		cur := 0
 		for _, amount := range customer {
-			curWealth += amount
+			cur += amount
 		}
-		if curWealth > maxWealth {
-			maxWealth = curWealth
+		if cur > max {
+			max = cur
 		}
 	}
 
-	return maxWealth
+	return max
 }
 ```
 
@@ -176,5 +176,23 @@ func canConstruct(ransomNote string, magazine string) bool {
 	}
 
 	return true
+}
+```
+
+
+## 1. Two Sum
+
+```go
+func twoSum(nums []int, target int) []int {
+	m := make(map[int]int)
+
+	for idx, num := range nums {
+		if preIdx, ok := m[target-num]; ok {
+			return []int{preIdx, idx}
+		}
+		m[num] = idx
+	}
+
+	return nil
 }
 ```
