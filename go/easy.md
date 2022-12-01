@@ -203,13 +203,30 @@ hashmap
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
 
-	for idx, num := range nums {
-		if preIdx, ok := m[target-num]; ok {
-			return []int{preIdx, idx}
+	for idxA, num := range nums {
+		if idxB, ok := m[target-num]; ok {
+			return []int{idxB, idxA}
 		}
-		m[num] = idx
+		m[num] = idxA
 	}
 
 	return nil
+}
+```
+
+## 1704. Determine if String Halves Are Alike
+
+Runtime 0ms, Memory 2.2MB
+```go
+func halvesAreAlike(s string) bool {
+	cnt := 0
+	half := len(s) / 2
+
+	for _, v := range []string{"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"} {
+		cnt += strings.Count(s[:half], v)
+		cnt -= strings.Count(s[half:], v)
+	}
+
+	return cnt == 0
 }
 ```
