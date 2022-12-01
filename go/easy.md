@@ -230,3 +230,49 @@ func halvesAreAlike(s string) bool {
 	return cnt == 0
 }
 ```
+
+## 13. Roman to Integer
+
+Runtime 19 ms, Memory 2.9 MB
+```go
+func romanToInt(s string) int {
+	list := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+	length := len(s)
+	total := 0
+
+	for i := 0; i < length; {
+		if (i+1 < length) && (list[s[i]] < list[s[i+1]]) {
+			total += list[s[i+1]] - list[s[i]]
+			i += 2
+		} else {
+			total += list[s[i]]
+			i += 1
+		}
+	}
+
+	return total
+}
+```
+
+Runtime 8 ms, Memory 2.9 MB
+```go
+func romanToInt(s string) int {
+	m1 := map[string]int{"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+	m2 := map[string]int{"IV": 4, "IX": 9, "XL": 40, "XC": 90, "CD": 400, "CM": 900}
+	length := len(s)
+	total := 0
+
+	for i := 0; i < length; {
+		// 2 letters
+		if (i+1 < length) && m2[s[i:i+2]] != 0 {
+			total += m2[s[i:i+2]]
+			i += 2
+		} else {
+			total += m1[s[i:i+1]]
+			i += 1
+		}
+	}
+
+	return total
+}
+```
