@@ -1,6 +1,6 @@
-# Easy Level
+# Easy Level Problems
 - https://leetcode.com/problemset/all/?page=1&difficulty=EASY
-
+- https://leetcode.com/explore/interview/card/top-interview-questions-easy/
 
 ## 2235. Add Two Integers
 
