@@ -4,6 +4,7 @@
 
 ## 2235. Add Two Integers
 
+Runtime 2 ms, Memory 1.9 MB
 ```go
 func sum(num1 int, num2 int) int {
 	return num1 + num2
@@ -13,6 +14,7 @@ func sum(num1 int, num2 int) int {
 
 ## 1480. Running Sum of 1D Array
 
+Runtime 8 ms, Memory 2.8 MB
 ```go
 func runningSum(nums []int) []int {
 	numsLen := len(nums)
@@ -30,6 +32,7 @@ func runningSum(nums []int) []int {
 
 ## 1672. Richest Customer Wealth
 
+Runtime 7 ms, Memory 3.1 MB
 ```go
 func maximumWealth(accounts [][]int) int {
 	max := 0
@@ -50,6 +53,7 @@ func maximumWealth(accounts [][]int) int {
 
 ## 412. Fizz Buzz
 
+Runtime 11 ms, Memory 3.6 MB
 ```go
 func fizzBuzz(n int) []string {
 	ans := make([]string, n)
@@ -77,6 +81,7 @@ func fizzBuzz(n int) []string {
 
 ## 1342. Number of Steps to Reduce a Number to Zero
 
+Runtime 4 ms, Memory 1.9 MB
 ```go
 func numberOfSteps(num int) int {
 	if num <= 0 {
@@ -117,6 +122,7 @@ func numberOfSteps(num int) int {
 
 ## 876. Middle of The Linked List
 
+Runtime 3 ms, Memoery 2 MB
 ```go
 /**
  * Definition for singly-linked list.
@@ -160,6 +166,7 @@ func middleNode(head *ListNode) *ListNode {
 
 ## 383. Ransom Note
 
+Runtime 7 ms, Memory 3.8 MB
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
 	alphabet := make([]int, 26)
@@ -199,6 +206,7 @@ func twoSum(nums []int, target int) []int {
 ```
 
 hashmap
+Runtime 0 ms, Memory 4.3 MB
 ```go
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
