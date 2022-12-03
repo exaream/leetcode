@@ -16,14 +16,14 @@ func sum(num1 int, num2 int) int {
 ```go
 func runningSum(nums []int) []int {
 	numsLen := len(nums)
-	res := make([]int, numsLen)
-	res[0] = nums[0]
+	ans := make([]int, numsLen)
+	ans[0] = nums[0]
 
 	for i := 1; i < numsLen; i++ {
-		res[i] = nums[i] + res[i-1]
+		ans[i] = nums[i] + ans[i-1]
 	}
 
-	return res
+	return ans
 }
 ```
 
@@ -52,7 +52,7 @@ func maximumWealth(accounts [][]int) int {
 
 ```go
 func fizzBuzz(n int) []string {
-	res := make([]string, n)
+	ans := make([]string, n)
 
 	for i := 1; i <= n; i++ {
 		var str string
@@ -67,10 +67,10 @@ func fizzBuzz(n int) []string {
 			str = strconv.Itoa(i)
 		}
 
-		res[i-1] = str
+		ans[i-1] = str
 	}
 
-	return res
+	return ans
 }
 ```
 
@@ -83,7 +83,7 @@ func numberOfSteps(num int) int {
 		return 0
 	}
 
-	res := 0
+	ans := 0
 	for num > 0 {
 		if num%2 == 0 {
 			num /= 2
@@ -91,10 +91,10 @@ func numberOfSteps(num int) int {
 			num--
 		}
 
-		res++
+		ans++
 	}
 
-	return res
+	return ans
 }
 ```
 
@@ -104,13 +104,13 @@ func numberOfSteps(num int) int {
 		return 0
 	}
 
-	res := 0
+	ans := 0
 	for num > 0 {
-		res += num&1 + 1
+		ans += num&1 + 1
 		num >>= 1
 	}
 
-	return res - 1
+	return ans - 1
 }
 ```
 
@@ -283,16 +283,16 @@ func romanToInt(s string) int {
 Runtime 0 ms, Memory 2.4 MB
 ```go
 func longestCommonPrefix(strs []string) string {
-	res := strs[0]
+	ans := strs[0]
 
 	for _, str := range strs[1:] {
 		i := 0
-		for ; i < len(str) && i < len(res) && res[i] == str[i]; i++ {
+		for ; i < len(str) && i < len(ans) && ans[i] == str[i]; i++ {
 		}
-		res = res[:i]
+		ans = ans[:i]
 	}
 
-	return res
+	return ans
 }
 ```
 
@@ -388,5 +388,42 @@ func removeDuplicates(nums []int) int {
 	// fmt.Println(nums)
 
 	return slow + 1
+}
+```
+
+
+## 121. Best Time to Buy and Sell Stock
+
+Runtime 179 ms, Memory 9 MB
+```go
+func maxProfit(prices []int) int {
+	max := 0
+	min := prices[0]
+
+	for i := 1; i < len(prices); i++ {
+		min = int(math.Min(float64(prices[i]), float64(min)))
+		max = int(math.Max(float64(prices[i]-min), float64(max)))
+	}
+
+	return max
+}
+```
+
+Runtime 158 ms, Memory 9.4 MB
+```go
+func maxProfit(prices []int) int {
+	max := 0
+	min := prices[0]
+
+	for i := 1; i < len(prices); i++ {
+		if prices[i] < min {
+			min = prices[i]
+		}
+		if prices[i]-min > max {
+			max = prices[i] - min
+		}
+	}
+
+	return max
 }
 ```
