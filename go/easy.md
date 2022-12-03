@@ -362,3 +362,31 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	return head.Next
 }
 ```
+
+
+## 26. Remove Duplicates from Sorted Array
+
+Runtime 7 ms, Memory 4.3 MB
+```go
+func removeDuplicates(nums []int) int {
+	length := len(nums)
+	if length <= 1 {
+		return length
+	}
+
+	slow := 0
+	for fast := 1; fast < length; fast++ {
+		if nums[slow] != nums[fast] {
+			slow++
+			nums[slow] = nums[fast]
+		}
+	}
+
+	// for i := slow + 1; i < len(nums); i++ {
+	// 	nums[i] = 0
+	// }
+	// fmt.Println(nums)
+
+	return slow + 1
+}
+```
