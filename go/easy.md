@@ -510,3 +510,43 @@ func containsDuplicate(nums []int) bool {
 	return false
 }
 ```
+
+
+## 136. Single Number
+
+Runtime 43 ms, Memory 6.8 MB
+```go
+func singleNumber(nums []int) int {
+	m := make(map[int]bool)
+
+	for i := range nums {
+		if _, ok := m[nums[i]]; !ok {
+			m[nums[i]] = true
+		} else {
+			m[nums[i]] = false
+		}
+	}
+
+	ans := 0
+	for k, v := range m {
+		if v {
+			ans = k
+			break
+		}
+	}
+
+	return ans
+}
+```
+
+Runtime 13 ms, Memory 6.2 MB
+`ans = ans ^ v` was faster than `ans ^= v`.
+```go
+func singleNumber(nums []int) int {
+	ans := 0
+	for _, v := range nums {
+		ans = ans ^ v
+	}
+	return ans
+}
+```
