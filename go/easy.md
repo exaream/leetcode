@@ -476,3 +476,37 @@ func moveZeroes(nums []int) {
 	}
 }
 ```
+
+
+## 217. Contains Duplicate
+
+Runtime 155 ms, Memory 8.5 MB
+```go
+func containsDuplicate(nums []int) bool {
+	sort.Ints(nums)
+
+	for i := 1; i < len(nums); i++ {
+		if nums[i] == nums[i-1] {
+			return true
+		}
+	}
+
+	return false
+}
+```
+
+Runtime 70 ms, Memory 8.6 MB
+```go
+func containsDuplicate(nums []int) bool {
+	dup := make(map[int]bool)
+
+	for i := 0; i < len(nums); i++ {
+		if dup[nums[i]] {
+			return true
+		}
+		dup[nums[i]] = true
+	}
+
+	return false
+}
+```
