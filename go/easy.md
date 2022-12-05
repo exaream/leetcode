@@ -459,3 +459,20 @@ func plusOne(digits []int) []int {
 	// return digits
 }
 ```
+
+
+## 283. Move Zeroes
+
+Runtime 26 ms, Memory 6.6 MB
+```go
+func moveZeroes(nums []int) {
+	idx := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 0 {
+			continue
+		}
+		nums[i], nums[idx] = nums[idx], nums[i]
+		idx++
+	}
+}
+```
