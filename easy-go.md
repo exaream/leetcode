@@ -624,6 +624,7 @@ func intersection(nums1 []int, nums2 []int) []int {
 
 ## 350. Intersection of Two Arrays II
 
+- https://leetcode.com/problems/intersection-of-two-arrays-ii/
 - Runtime 0 ms, Memory 3 MB
 ```go
 func intersect(nums1 []int, nums2 []int) []int {
