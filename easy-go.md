@@ -620,3 +620,27 @@ func intersection(nums1 []int, nums2 []int) []int {
 	return ans
 }
 ```
+
+
+## 350. Intersection of Two Arrays II
+
+- Runtime 0 ms, Memory 3 MB
+```go
+func intersect(nums1 []int, nums2 []int) []int {
+	cnt := make(map[int]int, len(nums1))
+	for _, v := range nums1 {
+		cnt[v]++
+	}
+
+	var ans []int
+	for _, v := range nums2 {
+		if cnt[v] == 0 {
+			continue
+		}
+		ans = append(ans, v)
+		cnt[v]--
+	}
+
+	return ans
+}
+```
