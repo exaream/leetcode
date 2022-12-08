@@ -680,3 +680,29 @@ func reverseString(s []byte) {
 	}
 }
 ```
+
+
+## 242. Valid Anagram
+
+- https://leetcode.com/problems/valid-anagram/
+- `Hash Table`, `String`, `Sorting`
+- Runtime 3 ms, Memory 2.7 MB
+```go
+func isAnagram(s string, t string) bool {
+	lenS, lenT := len(s), len(t)
+	if lenS != lenT {
+		return false
+	}
+	cnt := make([]int, 26)
+	for i := 0; i < lenT; i++ {
+		cnt[s[i]-'a']++
+		cnt[t[i]-'a']--
+	}
+	for i := 0; i < 26; i++ {
+		if cnt[i] != 0 {
+			return false
+		}
+	}
+	return true
+}
+```
