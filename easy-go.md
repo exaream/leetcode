@@ -208,7 +208,6 @@ func canConstruct(ransomNote string, magazine string) bool {
 
 - https://leetcode.com/problems/two-sum/
 - `Array`, `Hash Table`
-
 - brute force
 - Runetime 33 ms, Memory 3.5 MB
 ```go
@@ -665,5 +664,19 @@ func intersect(nums1 []int, nums2 []int) []int {
 	}
 
 	return ans
+}
+```
+
+
+## 344. Reverse String
+
+- https://leetcode.com/problems/reverse-string/
+- `Two Pointers`, `String`
+- Runtime 47 ms, Memory 6.6 MB
+```go
+func reverseString(s []byte) {
+	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
+		s[i], s[j] = s[j], s[i]
+	}
 }
 ```
