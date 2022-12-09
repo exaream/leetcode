@@ -915,3 +915,33 @@ func hasCycle(head *ListNode) bool {
 	return false
 }
 ```
+
+
+## 104. Maximum Depth of Binary Tree
+
+- https://leetcode.com/problems/maximum-depth-of-binary-tree/
+- `Tree`,  `Depth-First Search`,  `Breadth-First Search`,  `Binary Tree`
+- Runtime 2 ms, Memory 4.1 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func maxDepth(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	return max(maxDepth(root.Left), maxDepth(root.Right)) + 1
+}
+
+func max(x int, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
+```
