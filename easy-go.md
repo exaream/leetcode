@@ -798,3 +798,68 @@ func reverseList(head *ListNode) *ListNode {
 	return prev
 }
 ```
+
+
+## 234. Palindrome Linked List
+
+- https://leetcode.com/problems/palindrome-linked-list/
+-  `Linked List`,  `Two Pointers`,  `Stack`,  `Recursion`
+- Runtime 323 ms, Memory 12.1 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func isPalindrome(head *ListNode) bool {
+	stack := make([]int, 0, 100000)
+	for node := head; node != nil; i = node.Next {
+		stack = append(stack, node.Val)
+	}
+
+	i := len(stack)/2 - 1
+	j := len(stack) / 2
+	if len(stack)%2 == 1 {
+		j++
+	}
+
+	for i >= 0 && j <= len(stack)-1 {
+		if stack[i] != stack[j] {
+			return false
+		}
+		i--
+		j++
+	}
+
+	return true
+}
+```
+
+- Runtime 142 ms, Memory 10.4 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func isPalindrome(head *ListNode) bool {
+	cur := head
+	var stack []int
+	for cur != nil {
+		stack = append(stack, cur.Val)
+		cur = cur.Next
+	}
+
+	for i, j := 0, len(stack)-1; i < j; i, j = i+1, j-1 {
+		if stack[i] != stack[j] {
+			return false
+		}
+	}
+
+	return true
+}
+```
