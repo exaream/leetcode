@@ -706,3 +706,49 @@ func isAnagram(s string, t string) bool {
 	return true
 }
 ```
+
+
+## 125. Valid Palindrome
+
+
+- https://leetcode.com/problems/valid-palindrome/
+- `Two Pointers`, `String`
+- Runtime 20 ms, Memory 6 MB
+```go
+func isPalindrome(s string) bool {
+	s = strings.ToLower(s)
+	s = regexp.MustCompile(`[^a-z0-9]+`).ReplaceAllString(s, "")
+	fmt.Println(s)
+	list := strings.Split(s, "")
+
+	for i, j := 0, len(list)-1; i < j; i, j = i+1, j-1 {
+		if list[i] != list[j] {
+			return false
+		}
+	}
+
+	return true
+}
+```
+
+- Runtime 4 ms, Memory 3.1 MB
+```go
+func isPalindrome(s string) bool {
+	list := make([]rune, 0, len(s))
+
+	for _, c := range s {
+		if 'a' <= c && c <= 'z' || '0' <= c && c <= '9' {
+			list = append(list, c)
+		} else if 'A' <= c && c <= 'Z' {
+			list = append(list, 'a'+(c-'A'))
+		}
+	}
+
+	length := len(list)
+
+	for i, c := range list[:length/2] {
+		if c != list[length-i-1] {
+			return false
+		}
+	}
+```
