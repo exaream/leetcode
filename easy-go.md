@@ -863,3 +863,55 @@ func isPalindrome(head *ListNode) bool {
 	return true
 }
 ```
+
+
+## 141. Linked List Cycle
+
+- https://leetcode.com/problems/linked-list-cycle/
+- `Hash Table`,  `Linked List`,  `Two Pointers`
+- Runtime 24 ms, Memory 6.7 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func hasCycle(head *ListNode) bool {
+	stack := make(map[*ListNode]int, 0)
+	cur := head
+
+	for cur != nil {
+		if _, ok := stack[cur]; ok {
+			return true
+		}
+		stack[cur]++
+		cur = cur.Next
+	}
+
+	return false
+}
+```
+
+- Runtime 19 ms, Memory 4.4 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func hasCycle(head *ListNode) bool {
+	slow, fast := head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			return true
+		}
+	}
+	return false
+}
+```
