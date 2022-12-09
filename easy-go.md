@@ -710,7 +710,6 @@ func isAnagram(s string, t string) bool {
 
 ## 125. Valid Palindrome
 
-
 - https://leetcode.com/problems/valid-palindrome/
 - `Two Pointers`, `String`
 - Runtime 20 ms, Memory 6 MB
@@ -751,4 +750,51 @@ func isPalindrome(s string) bool {
 			return false
 		}
 	}
+```
+
+
+## 206. Reverse Linked List
+
+- https://leetcode.com/problems/reverse-linked-list/
+- `Linked List`, `Recursion`
+- Runtime 6 ms, Memory 2.6 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseList(head *ListNode) *ListNode {
+	var pre *ListNode
+	cur := head
+	for cur != nil {
+		cur, pre, cur.Next = cur.Next, cur, pre
+	}
+	return pre
+}
+```
+
+- Runtime 3 ms, Memory 2.5 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseList(head *ListNode) *ListNode {
+	var prev, cur, next *ListNode = nil, head, nil
+
+	for cur != nil {
+		next = cur.Next
+		cur.Next = prev
+		prev = cur
+		cur = next
+	}
+
+	return prev
+}
 ```
