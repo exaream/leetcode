@@ -1044,3 +1044,35 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 	}
 }
 ```
+
+
+## 278. First Bad Version
+
+- https://leetcode.com/problems/first-bad-version/
+- `Binary Search`, `Interactive`
+- Runtime 0 ms, Memory 2 MB
+
+```go
+/** 
+ * Forward declaration of isBadVersion API.
+ * @param   version   your guess about first bad version
+ * @return 	 	      true if current version is bad 
+ *			          false if current version is good
+ * func isBadVersion(version int) bool;
+ */
+func firstBadVersion(end int) int {
+	start := 1
+	for start < end {
+		mid := start + int((end-start)/2)
+		if isBadVersion(mid) {
+			end = mid
+		} else {
+			start = mid + 1
+		}
+		if start == end {
+			break
+		}
+	}
+	return start
+}
+```
