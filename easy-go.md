@@ -1010,3 +1010,37 @@ func sortedArrayToBST(nums []int) *TreeNode {
 	}
 }
 ```
+
+
+## 88. Merge Sorted Array
+
+- https://leetcode.com/problems/merge-sorted-array/
+- `Array`, `Two Pointers`, `Sorting`
+- Runtime 3 ms, Memory 2.3 MB
+```go
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	nums1 = append(nums1[:m], nums2[:n]...)
+	sort.Ints(nums1)
+}
+```
+
+- Runtime 0 ms, Memory 2.3 MB
+```go
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	im := m - 1
+	in := n - 1
+	i := n + m - 1 // Putting this in the for clause makes this function slower than it is now.
+
+	for ; i >= 0 && in >= 0; i-- {
+		if nums1[i] == 0 { // Using != to apply Early Return makes this function slower than it is now.
+			if im >= 0 && nums1[im] > nums2[in] {
+				nums1[im], nums1[i] = nums1[i], nums1[im]
+				im--
+			} else {
+				nums1[i] = nums2[in]
+				in--
+			}
+		}
+	}
+}
+```
