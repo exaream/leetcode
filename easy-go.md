@@ -1098,3 +1098,39 @@ func climbStairs(n int) int {
 	return cur
 }
 ```
+
+
+## 326. Power of Three
+
+- https://leetcode.com/problems/power-of-three/
+- `Math`, `Recursion`
+- Runtime 59 ms, Memory 6.5 MB
+```go
+func isPowerOfThree(n int) bool {
+	if n < 1 {
+		return false
+	}
+
+	for n%3 == 0 {
+		n /= 3
+	}
+
+	return n == 1
+}
+```
+
+- Runtime 59 ms, Memory 6.5 MB
+```go
+func isPowerOfThree(n int) bool {
+	if n < 1 {
+		return false
+	}
+	if n%3 == 0 {
+		return isPowerOfThree(n / 3)
+	}
+	if n == 1 {
+		return true
+	}
+	return false
+}
+```
