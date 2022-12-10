@@ -978,3 +978,35 @@ func isMirror(left, right *TreeNode) bool {
 	return isMirror(left.Left, right.Right) && isMirror(left.Right, right.Left)
 }
 ```
+
+
+## 108. Convert Sorted Array to Binary Search Tree
+
+- https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+- `Array`, `Divide and Conquer`, `Tree`, `Binary Search Tree`, `Binary Tree`
+- Runtime 6 ms, Memory 3.5 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func sortedArrayToBST(nums []int) *TreeNode {
+	switch len(nums) {
+	case 0:
+		return nil
+	case 1:
+		return &TreeNode{Val: nums[0]}
+	}
+
+	mid := len(nums) / 2
+	return &TreeNode{
+		Val:   nums[mid],
+		Left:  sortedArrayToBST(nums[:mid]),
+		Right: sortedArrayToBST(nums[mid+1:]),
+	}
+}
+```
