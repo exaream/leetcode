@@ -1076,3 +1076,25 @@ func firstBadVersion(end int) int {
 	return start
 }
 ```
+
+
+## 70. Climbing Stairs
+
+- https://leetcode.com/problems/climbing-stairs/
+- `Dynamic Programming`, `Memoization`
+- Runtime 1 ms, Memory 1.9 MB
+
+```go
+// Pattern from 1 to 3
+// 1 --> 1 way:  1
+// 2 --> 2 ways: 2-1-1
+// 3 --> 3 ways: 1-1-1 || 1-2 || 2-1
+func climbStairs(n int) int {
+	// Fibonacci
+	cur, next := 1, 2
+	for i := 2; i < n+1; i++ {
+		cur, next = next, cur+next
+	}
+	return cur
+}
+```
