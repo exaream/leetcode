@@ -1241,3 +1241,28 @@ func reverseBits(num uint32) uint32 {
 	return ans
 }
 ```
+
+
+## 118. Pascal's Triangle
+
+- https://leetcode.com/problems/pascals-triangle/
+- `Array`, `Dynamic Programming`
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func generate(numRows int) [][]int {
+	var ans [][]int
+
+	for i := 0; i < numRows; i++ {
+		row := make([]int, i+1)
+		row[0], row[i] = 1, 1
+		for j := 0; j <= i; j++ {
+			if row[j] == 0 {
+				row[j] = ans[i-1][j-1] + ans[i-1][j]
+			}
+		}
+		ans = append(ans, row)
+	}
+
+	return ans
+}
+```
