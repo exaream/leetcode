@@ -1223,3 +1223,21 @@ func hammingDistance(x int, y int) int {
 	return ans
 }
 ```
+
+
+## 190. Reverse Bits
+
+- https://leetcode.com/problems/reverse-bits/
+- `Divide and Conquer`, `Bit Manipulation`
+- Runtime 0 ms, Memory 2.6 MB
+- `num = num >> 1` is faster than `num >>= 1`.
+```go
+func reverseBits(num uint32) uint32 {
+	var ans uint32
+	for i := 0; i < 32; i++ {
+		ans = ans<<1 + num&1
+		num = num >> 1
+	}
+	return ans
+}
+```
