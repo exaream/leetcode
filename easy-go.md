@@ -1266,3 +1266,34 @@ func generate(numRows int) [][]int {
 	return ans
 }
 ```
+
+## 268. Missing Number
+
+- https://leetcode.com/problems/missing-number/
+- `Array`, `Hash Table`, `Math`, `Binary Search`, `Bit Manipulation`
+- Runtime 35 ms, Memory 6.4 MB
+```go
+func missingNumber(nums []int) int {
+	length := len(nums)
+	total := length * (length + 1) / 2
+
+	for _, i := range nums {
+		total -= i
+	}
+
+	return total
+}
+```
+
+- Runtime 17 ms, Memory 6.5 MB
+```go
+func missingNumber(nums []int) int {
+	length := len(nums)
+	r := nums[0]
+	for i := 1; i < length; i++ {
+		r ^= (i ^ nums[i])
+	}
+	r ^= length
+	return r
+}
+```
