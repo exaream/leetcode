@@ -7,7 +7,7 @@
 
 - https://leetcode.com/problems/add-two-integers/
 - `Math`
-- Runetime 2 ms, Memory 1.9 MB
+- Runtime 2 ms, Memory 1.9 MB
 ```go
 func sum(num1 int, num2 int) int {
 	return num1 + num2
@@ -19,7 +19,7 @@ func sum(num1 int, num2 int) int {
 
 - https://leetcode.com/problems/running-sum-of-1d-array/
 - `Array`, `Prefix Sum`
-- Runetime 8 ms, Memory 2.8 MB
+- Runtime 8 ms, Memory 2.8 MB
 ```go
 func runningSum(nums []int) []int {
 	length := len(nums)
@@ -39,7 +39,7 @@ func runningSum(nums []int) []int {
 
 - https://leetcode.com/problems/richest-customer-wealth/
 - `Array`, `Matrix`
-- Runetime 7 ms, Memory 3.1 MB
+- Runtime 7 ms, Memory 3.1 MB
 ```go
 func maximumWealth(accounts [][]int) int {
 	max := 0
@@ -62,7 +62,7 @@ func maximumWealth(accounts [][]int) int {
 
 - https://leetcode.com/problems/fizz-buzz/
 - `Math`, `String`, `Simulation`
-- Runetime 11 ms, Memory 3.6 MB
+- Runtime 11 ms, Memory 3.6 MB
 ```go
 func fizzBuzz(n int) []string {
 	ans := make([]string, n)
@@ -92,7 +92,7 @@ func fizzBuzz(n int) []string {
 
 - https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
 - `Math`, `Bit Manipulation`
-- Runetime 4 ms, Memory 1.9 MB
+- Runtime 4 ms, Memory 1.9 MB
 ```go
 func numberOfSteps(num int) int {
 	if num <= 0 {
@@ -114,7 +114,7 @@ func numberOfSteps(num int) int {
 }
 ```
 
-- Runetime 0 ms, Memory 1.8 MB
+- Runtime 0 ms, Memory 1.8 MB
 ```go
 func numberOfSteps(num int) int {
 	if num == 0 {
@@ -136,7 +136,7 @@ func numberOfSteps(num int) int {
 
 - https://leetcode.com/problems/middle-of-the-linked-list/
 - `Linked List`, `Two Pointers`
-- Runetime 0 ms, Memoery 2.1 MB
+- Runtime 0 ms, Memoery 2.1 MB
 ```go
 /**
  * Definition for singly-linked list.
@@ -157,7 +157,7 @@ func middleNode(head *ListNode) *ListNode {
 }
 ```
 
-- Runetime 3 ms, Memoery 2 MB
+- Runtime 3 ms, Memoery 2 MB
 ```go
 /**
  * Definition for singly-linked list.
@@ -183,7 +183,7 @@ func middleNode(head *ListNode) *ListNode {
 
 - https://leetcode.com/problems/ransom-note/
 - `Hash Table`, `String`, `Counting`
-- Runetime 7 ms, Memory 3.8 MB
+- Runtime 7 ms, Memory 3.8 MB
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
 	alphabet := make([]int, 26)
@@ -209,7 +209,7 @@ func canConstruct(ransomNote string, magazine string) bool {
 - https://leetcode.com/problems/two-sum/
 - `Array`, `Hash Table`
 - brute force
-- Runetime 33 ms, Memory 3.5 MB
+- Runtime 33 ms, Memory 3.5 MB
 ```go
 func twoSum(nums []int, target int) []int {
 	for i := 0; i < len(nums); i++ {
@@ -225,7 +225,7 @@ func twoSum(nums []int, target int) []int {
 ```
 
 - hashmap
-- Runetime 0 ms, Memory 4.3 MB
+- Runtime 0 ms, Memory 4.3 MB
 ```go
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
@@ -245,7 +245,7 @@ func twoSum(nums []int, target int) []int {
 
 - https://leetcode.com/problems/determine-if-string-halves-are-alike/
 - `String`, `Counting`
-- Runetime 0ms, Memory 2.2MB
+- Runtime 0ms, Memory 2.2MB
 ```go
 func halvesAreAlike(s string) bool {
 	cnt := 0
@@ -264,7 +264,7 @@ func halvesAreAlike(s string) bool {
 
 - https://leetcode.com/problems/roman-to-integer/
 - `Hash Table`, `Math`, `String`
-- Runetime 19 ms, Memory 2.9 MB
+- Runtime 19 ms, Memory 2.9 MB
 ```go
 func romanToInt(s string) int {
 	m := map[byte]int{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
@@ -285,7 +285,7 @@ func romanToInt(s string) int {
 }
 ```
 
-- Runetime 8 ms, Memory 2.9 MB
+- Runtime 8 ms, Memory 2.9 MB
 ```go
 func romanToInt(s string) int {
 	m1 := map[string]int{"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
@@ -313,7 +313,7 @@ func romanToInt(s string) int {
 
 - https://leetcode.com/problems/longest-common-prefix/
 - `String`
-- Runetime 0 ms, Memory 2.4 MB
+- Runtime 0 ms, Memory 2.4 MB
 ```go
 func longestCommonPrefix(strs []string) string {
 	ans := strs[0]
@@ -334,7 +334,7 @@ func longestCommonPrefix(strs []string) string {
 
 - https://leetcode.com/problems/valid-parentheses/
 - `String`, `Stack`
-- Runetime 0 ms, Memory 2 MB
+- Runtime 0 ms, Memory 2 MB
 ```go
 func isValid(s string) bool {
 	stack := make([]rune, 0)
@@ -365,7 +365,7 @@ func isValid(s string) bool {
 
 - https://leetcode.com/problems/merge-two-sorted-lists/
 - `Linked List`, `Recursion`
-- Runetime 0 ms, Memory 2.5 MB
+- Runtime 0 ms, Memory 2.5 MB
 ```go
 /**
  * Definition for singly-linked list.
@@ -405,7 +405,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 
 - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 - `Array`, `Two Pointers`
-- Runetime 7 ms, Memory 4.3 MB
+- Runtime 7 ms, Memory 4.3 MB
 ```go
 func removeDuplicates(nums []int) int {
 	length := len(nums)
@@ -435,7 +435,7 @@ func removeDuplicates(nums []int) int {
 
 - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 - `Array`, `Dynamic Programming`
-- Runetime 179 ms, Memory 9 MB
+- Runtime 179 ms, Memory 9 MB
 ```go
 func maxProfit(prices []int) int {
 	max := 0
@@ -450,7 +450,7 @@ func maxProfit(prices []int) int {
 }
 ```
 
-- Runetime 158 ms, Memory 9.4 MB
+- Runtime 158 ms, Memory 9.4 MB
 ```go
 func maxProfit(prices []int) int {
 	max := 0
@@ -474,7 +474,7 @@ func maxProfit(prices []int) int {
 
 - https://leetcode.com/problems/plus-one/
 - `Array`, `Math`
-- Runetime 0 ms, Memory 2.1 MB
+- Runtime 0 ms, Memory 2.1 MB
 ```go
 func plusOne(digits []int) []int {
 	for i := len(digits) - 1; i >= 0; i-- {
@@ -500,7 +500,7 @@ func plusOne(digits []int) []int {
 
 - https://leetcode.com/problems/move-zeroes/
 - `Array`, `Two Pointers`
-- Runetime 26 ms, Memory 6.6 MB
+- Runtime 26 ms, Memory 6.6 MB
 ```go
 func moveZeroes(nums []int) {
 	idx := 0
@@ -519,7 +519,7 @@ func moveZeroes(nums []int) {
 
 - https://leetcode.com/problems/contains-duplicate/
 - `Array`, `Hash Table`, `Sorting`
-- Runetime 155 ms, Memory 8.5 MB
+- Runtime 155 ms, Memory 8.5 MB
 ```go
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
@@ -534,7 +534,7 @@ func containsDuplicate(nums []int) bool {
 }
 ```
 
-- Runetime 70 ms, Memory 8.6 MB
+- Runtime 70 ms, Memory 8.6 MB
 ```go
 func containsDuplicate(nums []int) bool {
 	m := make(map[int]bool)
@@ -555,7 +555,7 @@ func containsDuplicate(nums []int) bool {
 
 - https://leetcode.com/problems/single-number/
 - `Array`, `Bit Manipulation`
-- Runetime 18 ms, Memory 6.7 MB
+- Runtime 18 ms, Memory 6.7 MB
 ```go
 func singleNumber(nums []int) int {
 	m := make(map[int]bool)
@@ -581,7 +581,7 @@ func singleNumber(nums []int) int {
 ```
 
 - `ans = ans ^ v` was faster than `ans ^= v`
-- Runetime 13 ms, Memory 6.2 MB
+- Runtime 13 ms, Memory 6.2 MB
 ```go
 func singleNumber(nums []int) int {
 	ans := 0
@@ -597,7 +597,7 @@ func singleNumber(nums []int) int {
 
 - https://leetcode.com/problems/intersection-of-two-arrays/
 - `Array`, `Hash Table`, `Two Pointers`, `Binary Search`, `Sorting`
-- Runetime 5 ms, Memory 2.8 MB
+- Runtime 5 ms, Memory 2.8 MB
 ```go
 func intersection(nums1 []int, nums2 []int) []int {
 	m := make(map[int]struct{}, 0)
@@ -620,7 +620,7 @@ func intersection(nums1 []int, nums2 []int) []int {
 }
 ```
 
-- Runetime 4 ms, Memory 3 MB
+- Runtime 4 ms, Memory 3 MB
 ```go
 func intersection(nums1 []int, nums2 []int) []int {
 	m := make(map[int]bool)
@@ -1238,6 +1238,31 @@ func reverseBits(num uint32) uint32 {
 		ans = ans<<1 + num&1
 		num = num >> 1
 	}
+	return ans
+}
+```
+
+
+## 118. Pascal's Triangle
+
+- https://leetcode.com/problems/pascals-triangle/
+- `Array`, `Dynamic Programming`
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func generate(numRows int) [][]int {
+	var ans [][]int
+
+	for i := 0; i < numRows; i++ {
+		row := make([]int, i+1)
+		row[0], row[i] = 1, 1
+		for j := 0; j <= i; j++ {
+			if row[j] == 0 {
+				row[j] = ans[i-1][j-1] + ans[i-1][j]
+			}
+		}
+		ans = append(ans, row)
+	}
+
 	return ans
 }
 ```
