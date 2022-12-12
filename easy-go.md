@@ -1382,3 +1382,22 @@ func mySqrt(x int) int {
 	return low
 }
 ```
+
+
+## 94. Binary Tree Inorder Traversal
+
+- https://leetcode.com/problems/binary-tree-inorder-traversal/
+- `Stack`, `Tree`, `Depth-First Search`, `Binary Tree`
+- Runtime 0 ms, Memory 2 MB
+
+```go
+func inorderTraversal(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+	ans := inorderTraversal(root.Left)
+	ans = append(ans, root.Val)
+	ans = append(ans, inorderTraversal(root.Right)...)
+	return ans
+}
+```
