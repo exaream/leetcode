@@ -1335,3 +1335,20 @@ func calc(n int) int {
 	return sum
 }
 ```
+
+
+## 171. Excel Sheet Column Number
+
+- https://leetcode.com/problems/excel-sheet-column-number/
+- `Math`, `String`
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func titleToNumber(s string) int {
+	ans := 0
+	for i := 0; i < len(s); i++ {
+		ans *= 26
+		ans += int(s[i]-'A') + 1
+	}
+	return ans
+}
+```
