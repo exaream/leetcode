@@ -1297,3 +1297,41 @@ func missingNumber(nums []int) int {
 	return r
 }
 ```
+
+
+## 202. Happy Number
+
+- https://leetcode.com/problems/happy-number/
+- `Hash Table`, `Math`, `Two Pointers`
+- Runtime 0 ms, Memory 1.9 MB
+```go
+func isHappy(n int) bool {
+	slow, fast := n, n
+
+	for {
+		slow = calc(slow)
+		fast = calc(calc(fast))
+		if slow == fast {
+			break
+		}
+	}
+
+	if slow == 1 {
+		return true
+	}
+
+	return false
+}
+
+// Calculate square digit sum.
+func calc(n int) int {
+	sum := 0
+	for n > 0 {
+		tmp := n % 10
+		sum += tmp * tmp
+		n /= 10
+
+	}
+	return sum
+}
+```
