@@ -1209,3 +1209,17 @@ func hammingDistance(x int, y int) int {
 	return bits.OnesCount(uint(x^y))
 }
 ```
+
+- Runtime 0 ms, Memory 2 MB
+```go
+func hammingDistance(x int, y int) int {
+	ans := 0
+	bin := fmt.Sprintf("%b", x^y)
+	for i := 0; i < len(bin); i++ {
+		if rune(bin[i]) == '1' {
+			ans++
+		}
+	}
+	return ans
+}
+```
