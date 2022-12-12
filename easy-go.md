@@ -1352,3 +1352,33 @@ func titleToNumber(s string) int {
 	return ans
 }
 ```
+
+
+## 69. Sqrt(x)
+
+- https://leetcode.com/problems/sqrtx/
+- `Math`, `Binary Search`
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func mySqrt(x int) int {
+	if x <= 1 {
+		return x
+	}
+
+	low, high := 1, x
+
+	for low < high-1 {
+		mid := (low + high + 1) / 2
+		if mid*mid == x {
+			return mid
+		}
+		if mid*mid > x {
+			high = mid
+		} else {
+			low = mid
+		}
+	}
+
+	return low
+}
+```
