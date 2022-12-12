@@ -1176,3 +1176,36 @@ func hammingWeight(num uint32) int {
 }
 ```
 
+
+## 461. Hamming Distance
+
+- https://leetcode.com/problems/hamming-distance/
+- `Bit Manipulation`
+- Runtime 3 ms, Memory 1.9 MB
+```go
+func hammingDistance(x int, y int) int {
+	ans := 0
+	xor := x ^ y
+
+	for xor > 0 {
+		xor = xor & (xor - 1)
+		ans++
+	}
+
+	return ans
+}
+```
+
+- Runtime 2 ms, Memory 2 MB
+```go
+func hammingDistance(x int, y int) int {
+	return strings.Count(fmt.Sprintf("%b", x^y), "1")
+}
+```
+
+- Runtime 0 ms, Memory 2 MB
+```go
+func hammingDistance(x int, y int) int {
+	return bits.OnesCount(uint(x^y))
+}
+```
