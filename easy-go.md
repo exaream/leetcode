@@ -1134,3 +1134,45 @@ func isPowerOfThree(n int) bool {
 	return false
 }
 ```
+
+
+## 191. Number of 1 Bits
+
+- https://leetcode.com/problems/number-of-1-bits/
+- `Divide and Conquer`, `Bit Manipulation`
+- Runtime 0 ms, Memory 2 MB
+```go
+func hammingWeight(num uint32) int {
+	ans := 0
+	str := strconv.FormatUint(uint64(num), 2)
+	for _, v := range str {
+		if v == '1' {
+			ans++
+		}
+	}
+	return ans
+}
+```
+
+- Runtime 0 ms, Memory 1.9 MB
+- `num = num >> 1` is faster than `num >>= 1`.
+```go
+func hammingWeight(num uint32) int {
+	var ans uint32
+
+	for num != 0 {
+		ans += num & 1
+		num = num >> 1
+	}
+
+	return int(ans)
+}
+```
+
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func hammingWeight(num uint32) int {
+	return bits.OnesCount32(num)
+}
+```
+
