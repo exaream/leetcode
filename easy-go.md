@@ -1490,3 +1490,49 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	return fast
 }
 ```
+
+
+## 169. Majority Element
+
+- https://leetcode.com/problems/majority-element/
+- `Array`, `Hash Table`, `Divide and Conquer`, `Sorting`, `Counting`
+- Runtime 29 ms, Memory 7.1 MB
+```go
+func majorityElement(nums []int) int {
+	std := len(nums) / 2
+	cnt := make(map[int]int)
+	for _, v := range nums {
+		cnt[v]++
+		if cnt[v] > std {
+			return v
+		}
+	}
+	return -1
+}
+```
+
+- Runtime 22 ms, Memory 6 MB
+```go
+func majorityElement(nums []int) (result int) {
+	sort.Ints(nums)
+	return nums[len(nums)/2]
+}
+```
+
+- Runtime 17 ms, Memory 6 MB
+```go
+func majorityElement(nums []int) int {
+	cnt, candidate := 0, -1
+	for i := 0; i < len(nums); i++ {
+		if cnt == 0 {
+			candidate = nums[i]
+		}
+		if candidate == nums[i] {
+			cnt++
+		} else {
+			cnt--
+		}
+	}
+	return candidate
+}
+```
