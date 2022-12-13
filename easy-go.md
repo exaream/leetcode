@@ -1637,3 +1637,22 @@ func max(a, b int) int {
 	return b
 }
 ```
+
+
+## 35. Search Insert Position
+
+- https://leetcode.com/problems/search-insert-position/
+- `Array`, `Binary Search`
+- Runtime 0 ms, Memory 3 MB
+```go
+func searchInsert(nums []int, target int) int {
+	i := 0
+	for i < len(nums) {
+		if nums[i] >= target {
+			return i
+		}
+		i++
+	}
+	return i
+}
+```
