@@ -1598,3 +1598,42 @@ func invertTree(root *TreeNode) *TreeNode {
 	return root
 }
 ```
+
+
+## 543. Diameter of Binary Tree
+
+- https://leetcode.com/problems/diameter-of-binary-tree/
+- `Tree`, `Depth-First Search`, `Binary Tree`
+- Runtime 3 ms, Memory 4.3 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func diameterOfBinaryTree(root *TreeNode) int {
+	ans := 0
+	depth(root, &ans)
+	return ans
+}
+
+func depth(root *TreeNode, ans *int) int {
+	if root == nil {
+		return 0
+	}
+	left := depth(root.Left, ans)
+	right := depth(root.Right, ans)
+	*ans = max(*ans, left+right)
+	return max(left, right) + 1
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
