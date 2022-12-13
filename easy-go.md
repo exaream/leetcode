@@ -1382,3 +1382,111 @@ func mySqrt(x int) int {
 	return low
 }
 ```
+
+
+## 94. Binary Tree Inorder Traversal
+
+- https://leetcode.com/problems/binary-tree-inorder-traversal/
+- `Stack`, `Tree`, `Depth-First Search`, `Binary Tree`
+- Runtime 0 ms, Memory 2 MB
+
+```go
+func inorderTraversal(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+	ans := inorderTraversal(root.Left)
+	ans = append(ans, root.Val)
+	ans = append(ans, inorderTraversal(root.Right)...)
+	return ans
+}
+```
+
+
+## 160. Intersection of Two Linked Lists
+
+- https://leetcode.com/problems/intersection-of-two-linked-lists/
+- `Hash Table`, `Linked List`, `Two Pointers`
+- Runtime 74ms, Memory 7.5 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	if headA == nil || headB == nil {
+		return nil
+	}
+	hasVisited := make(map[*ListNode]struct{})
+
+	for n := headA; n != nil; n = n.Next {
+		hasVisited[n] = struct{}{}
+	}
+
+	for n := headB; n != nil; n = n.Next {
+		if _, ok := hasVisited[n]; ok {
+			return n
+		}
+	}
+	return nil
+}
+```
+
+- Runtime 35 ms, Memory 7.1 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+	curA, curB := headA, headB
+	lenA, lenB := 0, 0
+	for curA != nil {
+		curA = curA.Next
+		lenA++
+	}
+	for curB != nil {
+		curB = curB.Next
+		lenB++
+	}
+
+	var count int
+	var fast, slow *ListNode
+	if lenA > lenB {
+		fast, slow = headA, headB
+		count = lenA - lenB
+	} else {
+		fast, slow = headB, headA
+		count = lenB - lenA
+	}
+
+	for fast != nil && slow != nil {
+		// Skip if there is a difference in the number of 2 nodes 
+		// before they intersect.
+		if count > 0 {
+			fast = fast.Next
+			count--
+			continue
+		}
+		if fast == slow {
+			return fast
+		}
+		fast = fast.Next
+		slow = slow.Next
+	}
+	return fast
+}
+```
