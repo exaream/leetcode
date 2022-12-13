@@ -1574,3 +1574,27 @@ func firstUniqChar(s string) int {
 	return -1
 }
 ```
+
+
+## 226. Invert Binary Tree
+
+- https://leetcode.com/problems/invert-binary-tree/
+- `Tree`, `Depth-First Search`, `Breadth-First Search`, `Binary Tree`
+- Runtime 2 ms, Memory 2.1 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func invertTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	root.Left, root.Right = invertTree(root.Right), invertTree(root.Left)
+	return root
+}
+```
