@@ -1536,3 +1536,41 @@ func majorityElement(nums []int) int {
 	return candidate
 }
 ```
+
+
+## 387. First Unique Character in a String
+
+- https://leetcode.com/problems/first-unique-character-in-a-string/
+- `Hash Table`, `String`, `Queue`, `Counting`
+- Runtime 38 ms, Memory 5.4 MB
+
+```go
+func firstUniqChar(s string) int {
+	cnt := make(map[byte]int)
+	for i := 0; i < len(s); i++ {
+		cnt[s[i]]++
+	}
+	for i := 0; i < len(s); i++ {
+		if cnt[s[i]] == 1 {
+			return i
+		}
+	}
+	return -1
+}
+```
+
+- Runtime 3 ms, Memory 5.2 MB
+```go
+func firstUniqChar(s string) int {
+	m := make([]int, 26)
+	for _, v := range s {
+		m[v-'a']++
+	}
+	for i, v := range s {
+		if m[v-'a'] == 1 {
+			return i
+		}
+	}
+	return -1
+}
+```
