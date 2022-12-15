@@ -79,3 +79,21 @@ WHERE
             c.name = 'RED'
     )
 ```
+
+## 1050. Actors and Directors Who Cooperated At Least Three Times
+
+- https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/
+- `Database`
+- Runtime 393 ms
+```sql
+SELECT
+    actor_id,
+    director_id
+FROM
+    ActorDirector
+GROUP BY
+    actor_id,
+    director_id
+HAVING
+    COUNT(timestamp) > 2
+```
