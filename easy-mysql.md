@@ -110,14 +110,14 @@ SELECT
     p.product_name
 FROM
     Product p
-    INNER JOIN sales s ON p.product_id = s.product_id
+    INNER JOIN Sales s ON p.product_id = s.product_id
 WHERE
     s.sale_date BETWEEN '2019-01-01' AND '2019-03-31'
     AND s.product_id NOT IN (
         SELECT
             product_id
         FROM
-            sales
+            Sales
         WHERE
             sale_date NOT BETWEEN '2019-01-01' AND '2019-03-31'
     )
@@ -131,11 +131,30 @@ SELECT
     p.product_id,
     p.product_name
 FROM
-    product p
-    JOIN sales s ON p.product_id = s.product_id
+    Product p
+    JOIN Sales s ON p.product_id = s.product_id
 GROUP BY
     s.product_id
 HAVING
     MIN(s.sale_date) >= '2019-01-01'
     AND MAX(s.sale_date) <= '2019-03-31'
+```
+
+
+## 1141. User Activity for the Past 30 Days I
+
+- https://leetcode.com/problems/user-activity-for-the-past-30-days-i/
+- `Database`
+- Runtime 599 ms
+```sql
+SELECT
+    activity_date AS day,
+    COUNT(DISTINCT(user_id)) AS active_users
+FROM
+    Activity
+WHERE
+    activity_date > '2019-06-27' -- DATE_FORMAT(('2019-07-27' - INTERVAL 30 DAY), '%Y-%m-%d')
+    AND activity_date < '2019-07-28'
+GROUP BY
+    activity_date
 ```
