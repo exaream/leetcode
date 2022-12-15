@@ -158,3 +158,28 @@ WHERE
 GROUP BY
     activity_date
 ```
+
+
+## 1148. Article Views I
+
+- https://leetcode.com/problems/article-views-i/
+- `Database`
+- Runtime 527 ms
+```sql
+SELECT
+    author_id AS id
+FROM
+    Views
+WHERE
+    author_id = viewer_id
+GROUP BY
+    author_id
+ORDER BY
+    author_id
+```
+
+- Runtime 471 ms
+- Maybe, one line SQL is a bit faster than formatted SQL.
+```sql
+SELECT DISTINCT(author_id) AS id FROM Views WHERE author_id = viewer_id ORDER BY author_id
+```
