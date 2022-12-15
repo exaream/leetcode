@@ -13,7 +13,7 @@ SELECT
     player_id,
     MIN(event_date) AS first_login
 FROM
-    activity
+    Activity
 GROUP BY
     player_id
 ```
@@ -33,14 +33,14 @@ FROM
             customer_number,
             COUNT(order_number) AS order_count
         FROM
-            orders
+            Orders
         GROUP BY
             customer_number
         ORDER BY
             order_count DESC
         LIMIT
             1
-    ) AS t1
+    ) AS tmp
 ```
 
 - Runtime 488 ms
@@ -48,11 +48,34 @@ FROM
 SELECT
     customer_number
 FROM
-    orders
+    Orders
 GROUP BY
     customer_number
 ORDER BY
     COUNT(order_number) DESC
 LIMIT
     1
+```
+
+
+## 607. Sales Person
+
+- https://leetcode.com/problems/sales-person/
+- `Database`
+- Runtime 1007 ms
+```sql
+SELECT
+    name
+FROM
+    SalesPerson
+WHERE
+    sales_id NOT IN(
+        SELECT
+            o.sales_id
+        FROM
+            Company c
+            INNER JOIN Orders o ON c.com_id = o.com_id
+        WHERE
+            c.name = 'RED'
+    )
 ```
