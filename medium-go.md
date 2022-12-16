@@ -28,3 +28,54 @@ func fourSumCount(nums1, nums2, nums3, nums4 []int) int {
 	return ans
 }
 ```
+
+
+## 395. Longest Substring with At Least K Repeating Characters
+
+- https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/
+- `Hash Table` `String` `Divide and Conquer` `Sliding Window`
+- Runtime 0 ms, Memory 2.2 MB
+
+```go
+func longestSubstring(s string, k int) int {
+	if len(s) < k {
+		return 0
+	}
+
+	if k == 1 {
+		return len(s)
+	}
+
+	cnt := make([]int, 26)
+	for _, c := range s {
+		cnt[c-'a']++
+	}
+
+	badChar := ""
+	for i, v := range cnt {
+		if v > 0 && v < k {
+			badChar = string(i + 'a')
+			break
+		}
+	}
+
+	if badChar == "" {
+		return len(s)
+	}
+
+	splited := strings.Split(s, badChar)
+	ans := 0
+	for _, v := range splited {
+		ans = max(ans, longestSubstring(v, k))
+	}
+
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
