@@ -26,7 +26,10 @@ GROUP BY
 
 - Runtime 689 ms
 ```sql
-WITH tmp AS (
+-- WITH (Common Table Expressions)
+-- MySQL 8.0+ https://dev.mysql.com/doc/refman/8.0/en/with.html
+-- MariaDB 10.2.1+ https://mariadb.com/kb/en/with/
+WITH cte AS (
     SELECT
         stock_name,
         operation,
@@ -43,7 +46,7 @@ SELECT
     stock_name,
     SUM(calculated_price) AS capital_gain_loss
 FROM
-    tmp
+    cte
 GROUP BY
     stock_name;
 ```
