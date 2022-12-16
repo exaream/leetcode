@@ -79,3 +79,34 @@ func max(a, b int) int {
 	return b
 }
 ```
+
+
+## 384. Shuffle an Array
+
+- https://leetcode.com/problems/shuffle-an-array/
+- `Array` `Math` `Randomized`
+- Runtime 24 ms, Memory 8 MB
+```go
+type Solution struct {
+	org []int
+	tmp []int
+}
+
+func Constructor(nums []int) Solution {
+	rand.Seed(time.Now().UnixNano())
+	return Solution{
+		org: nums,
+		tmp: make([]int, len(nums)),
+	}
+}
+
+func (s *Solution) Reset() []int {
+	return s.org
+}
+
+func (s *Solution) Shuffle() []int {
+	copy(s.tmp, s.org)
+	rand.Shuffle(len(s.tmp), func(i, j int) { s.tmp[i], s.tmp[j] = s.tmp[j], s.tmp[i] })
+	return s.tmp
+}
+```
