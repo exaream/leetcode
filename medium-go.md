@@ -63,9 +63,9 @@ func longestSubstring(s string, k int) int {
 		return len(s)
 	}
 
-	splited := strings.Split(s, badChar)
+	parts := strings.Split(s, badChar)
 	ans := 0
-	for _, v := range splited {
+	for _, v := range parts {
 		ans = max(ans, longestSubstring(v, k))
 	}
 
