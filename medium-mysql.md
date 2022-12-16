@@ -50,3 +50,48 @@ FROM
 GROUP BY
     stock_name;
 ```
+
+
+## 608. Tree Node
+
+- https://leetcode.com/problems/tree-node/
+- `Database`
+- Runtime 711 ms
+```sql
+SELECT
+    t1.id,
+    IF(
+        ISNULL(t1.p_id),
+        'Root',
+        IF(
+            t1.id IN (
+                SELECT
+                    t2.p_id
+                FROM
+                    tree t2
+            ),
+            'Inner',
+            'Leaf'
+        )
+    ) type
+FROM
+    tree t1
+ORDER BY
+    t1.id
+```
+
+- Runtime 434 ms
+```sql
+SELECT
+    id,
+    CASE
+        WHEN t1.p_id IS NULL
+          THEN 'Root'
+        WHEN t1.id IN (SELECT t2.p_id FROM tree t2)
+          THEN 'Inner'
+        ELSE 'Leaf'
+    END AS type
+FROM
+    tree t1
+ORDER BY id
+```
