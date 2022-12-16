@@ -21,7 +21,7 @@ func fourSumCount(nums1, nums2, nums3, nums4 []int) int {
 
 	for _, k := range nums3 {
 		for _, l := range nums4 {
-			ans += tmp[-(k + l)] // ans += 0  if  tmp[-(k + l)]  does NOT exist
+			ans += tmp[-(k + l)] // Add the zero value 0 to ans if tmp[-(k + l)] does NOT exist
 		}
 	}
 
