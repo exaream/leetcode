@@ -183,3 +183,43 @@ ORDER BY
 ```sql
 SELECT DISTINCT(author_id) AS id FROM Views WHERE author_id = viewer_id ORDER BY author_id
 ```
+
+
+## 1407. Top Travellers
+
+- https://leetcode.com/problems/top-travellers/
+- `Database`
+- Runtime 1030 ms
+```sql
+SELECT
+    u.name,
+    SUM(IFNULL(r.distance, 0)) AS travelled_distance
+FROM
+    Users u
+    LEFT JOIN Rides r ON r.user_id = u.id
+GROUP BY
+    u.id
+ORDER BY
+    travelled_distance DESC,
+    name ASC
+```
+
+- Runtime 811 ms
+```sql
+SELECT
+    u.name,
+    IFNULL(tmp.travelled_distance, 0) AS travelled_distance
+FROM
+    Users u
+    LEFT JOIN (
+        SELECT
+            r.user_id,
+            SUM(r.distance) AS travelled_distance
+        FROM
+            Rides r
+        GROUP BY
+            r.user_id
+    ) tmp ON u.id = tmp.user_id
+ORDER BY
+    tmp.travelled_distance DESC, u.name ASC
+```
