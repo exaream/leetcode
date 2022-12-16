@@ -1656,3 +1656,37 @@ func searchInsert(nums []int, target int) int {
 	return i
 }
 ```
+
+
+## 232. Implement Queue using Stacks
+
+- https://leetcode.com/problems/implement-queue-using-stacks/
+- `Stack` `Design` `Queue`
+- Runtime 0 ms, Memory 1.9 MB
+```go
+type MyQueue struct {
+	stack []int
+}
+
+func Constructor() MyQueue {
+	return MyQueue{}
+}
+
+func (m *MyQueue) Push(x int) {
+	m.stack = append(m.stack, x)
+}
+
+func (m *MyQueue) Pop() int {
+    first := m.stack[0]
+	m.stack = m.stack[1:]
+	return first
+}
+
+func (m *MyQueue) Peek() int {
+	return m.stack[0]
+}
+
+func (m *MyQueue) Empty() bool {
+	return len(m.stack) == 0
+}
+```
