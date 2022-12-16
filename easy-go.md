@@ -18,7 +18,7 @@ func sum(num1 int, num2 int) int {
 ## 1480. Running Sum of 1d Array
 
 - https://leetcode.com/problems/running-sum-of-1d-array/
-- `Array`, `Prefix Sum`
+- `Array` `Prefix Sum`
 - Runtime 8 ms, Memory 2.8 MB
 ```go
 func runningSum(nums []int) []int {
@@ -38,7 +38,7 @@ func runningSum(nums []int) []int {
 ## 1672. Richest Customer Wealth
 
 - https://leetcode.com/problems/richest-customer-wealth/
-- `Array`, `Matrix`
+- `Array` `Matrix`
 - Runtime 7 ms, Memory 3.1 MB
 ```go
 func maximumWealth(accounts [][]int) int {
@@ -61,7 +61,7 @@ func maximumWealth(accounts [][]int) int {
 ## 412. Fizz Buzz
 
 - https://leetcode.com/problems/fizz-buzz/
-- `Math`, `String`, `Simulation`
+- `Math` `String` `Simulation`
 - Runtime 11 ms, Memory 3.6 MB
 ```go
 func fizzBuzz(n int) []string {
@@ -91,7 +91,7 @@ func fizzBuzz(n int) []string {
 ## 1342. Number of Steps to Reduce a Number to Zero
 
 - https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/
-- `Math`, `Bit Manipulation`
+- `Math` `Bit Manipulation`
 - Runtime 4 ms, Memory 1.9 MB
 ```go
 func numberOfSteps(num int) int {
@@ -135,7 +135,7 @@ func numberOfSteps(num int) int {
 ## 876. Middle of The Linked List
 
 - https://leetcode.com/problems/middle-of-the-linked-list/
-- `Linked List`, `Two Pointers`
+- `Linked List` `Two Pointers`
 - Runtime 0 ms, Memoery 2.1 MB
 ```go
 /**
@@ -182,7 +182,7 @@ func middleNode(head *ListNode) *ListNode {
 ## 383. Ransom Note
 
 - https://leetcode.com/problems/ransom-note/
-- `Hash Table`, `String`, `Counting`
+- `Hash Table` `String` `Counting`
 - Runtime 7 ms, Memory 3.8 MB
 ```go
 func canConstruct(ransomNote string, magazine string) bool {
@@ -207,7 +207,7 @@ func canConstruct(ransomNote string, magazine string) bool {
 ## 1. Two Sum
 
 - https://leetcode.com/problems/two-sum/
-- `Array`, `Hash Table`
+- `Array` `Hash Table`
 - brute force
 - Runtime 33 ms, Memory 3.5 MB
 ```go
@@ -244,7 +244,7 @@ func twoSum(nums []int, target int) []int {
 ## 1704. Determine if String Halves Are Alike
 
 - https://leetcode.com/problems/determine-if-string-halves-are-alike/
-- `String`, `Counting`
+- `String` `Counting`
 - Runtime 0ms, Memory 2.2MB
 ```go
 func halvesAreAlike(s string) bool {
@@ -263,7 +263,7 @@ func halvesAreAlike(s string) bool {
 ## 13. Roman to Integer
 
 - https://leetcode.com/problems/roman-to-integer/
-- `Hash Table`, `Math`, `String`
+- `Hash Table` `Math` `String`
 - Runtime 19 ms, Memory 2.9 MB
 ```go
 func romanToInt(s string) int {
@@ -333,7 +333,7 @@ func longestCommonPrefix(strs []string) string {
 ## 20. Valid Parentheses
 
 - https://leetcode.com/problems/valid-parentheses/
-- `String`, `Stack`
+- `String` `Stack`
 - Runtime 0 ms, Memory 2 MB
 ```go
 func isValid(s string) bool {
@@ -364,7 +364,7 @@ func isValid(s string) bool {
 ## 21. Merge Two Sorted Lists
 
 - https://leetcode.com/problems/merge-two-sorted-lists/
-- `Linked List`, `Recursion`
+- `Linked List` `Recursion`
 - Runtime 0 ms, Memory 2.5 MB
 ```go
 /**
@@ -404,7 +404,7 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 ## 26. Remove Duplicates from Sorted Array
 
 - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-- `Array`, `Two Pointers`
+- `Array` `Two Pointers`
 - Runtime 7 ms, Memory 4.3 MB
 ```go
 func removeDuplicates(nums []int) int {
@@ -434,7 +434,7 @@ func removeDuplicates(nums []int) int {
 ## 121. Best Time to Buy and Sell Stock
 
 - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-- `Array`, `Dynamic Programming`
+- `Array` `Dynamic Programming`
 - Runtime 179 ms, Memory 9 MB
 ```go
 func maxProfit(prices []int) int {
@@ -473,7 +473,7 @@ func maxProfit(prices []int) int {
 ## 66. Plus One
 
 - https://leetcode.com/problems/plus-one/
-- `Array`, `Math`
+- `Array` `Math`
 - Runtime 0 ms, Memory 2.1 MB
 ```go
 func plusOne(digits []int) []int {
@@ -499,7 +499,7 @@ func plusOne(digits []int) []int {
 ## 283. Move Zeroes
 
 - https://leetcode.com/problems/move-zeroes/
-- `Array`, `Two Pointers`
+- `Array` `Two Pointers`
 - Runtime 26 ms, Memory 6.6 MB
 ```go
 func moveZeroes(nums []int) {
@@ -518,7 +518,7 @@ func moveZeroes(nums []int) {
 ## 217. Contains Duplicate
 
 - https://leetcode.com/problems/contains-duplicate/
-- `Array`, `Hash Table`, `Sorting`
+- `Array` `Hash Table` `Sorting`
 - Runtime 155 ms, Memory 8.5 MB
 ```go
 func containsDuplicate(nums []int) bool {
@@ -554,7 +554,7 @@ func containsDuplicate(nums []int) bool {
 ## 136. Single Number
 
 - https://leetcode.com/problems/single-number/
-- `Array`, `Bit Manipulation`
+- `Array` `Bit Manipulation`
 - Runtime 18 ms, Memory 6.7 MB
 ```go
 func singleNumber(nums []int) int {
@@ -596,7 +596,7 @@ func singleNumber(nums []int) int {
 ## 349. Intersection of Two Arrays
 
 - https://leetcode.com/problems/intersection-of-two-arrays/
-- `Array`, `Hash Table`, `Two Pointers`, `Binary Search`, `Sorting`
+- `Array` `Hash Table` `Two Pointers` `Binary Search` `Sorting`
 - Runtime 5 ms, Memory 2.8 MB
 ```go
 func intersection(nums1 []int, nums2 []int) []int {
@@ -645,7 +645,7 @@ func intersection(nums1 []int, nums2 []int) []int {
 ## 350. Intersection of Two Arrays II
 
 - https://leetcode.com/problems/intersection-of-two-arrays-ii/
-- `Array`, `Hash Table`, `Two Pointers`, `Binary Search`, `Sorting`
+- `Array` `Hash Table` `Two Pointers` `Binary Search` `Sorting`
 - Runtime 0 ms, Memory 3 MB
 ```go
 func intersect(nums1 []int, nums2 []int) []int {
@@ -671,7 +671,7 @@ func intersect(nums1 []int, nums2 []int) []int {
 ## 344. Reverse String
 
 - https://leetcode.com/problems/reverse-string/
-- `Two Pointers`, `String`
+- `Two Pointers` `String`
 - Runtime 47 ms, Memory 6.6 MB
 ```go
 func reverseString(s []byte) {
@@ -685,7 +685,7 @@ func reverseString(s []byte) {
 ## 242. Valid Anagram
 
 - https://leetcode.com/problems/valid-anagram/
-- `Hash Table`, `String`, `Sorting`
+- `Hash Table` `String` `Sorting`
 - Runtime 3 ms, Memory 2.7 MB
 ```go
 func isAnagram(s string, t string) bool {
@@ -711,7 +711,7 @@ func isAnagram(s string, t string) bool {
 ## 125. Valid Palindrome
 
 - https://leetcode.com/problems/valid-palindrome/
-- `Two Pointers`, `String`
+- `Two Pointers` `String`
 - Runtime 20 ms, Memory 6 MB
 ```go
 func isPalindrome(s string) bool {
@@ -756,7 +756,7 @@ func isPalindrome(s string) bool {
 ## 206. Reverse Linked List
 
 - https://leetcode.com/problems/reverse-linked-list/
-- `Linked List`, `Recursion`
+- `Linked List` `Recursion`
 - Runtime 6 ms, Memory 2.6 MB
 ```go
 /**
@@ -950,7 +950,7 @@ func max(x int, y int) int {
 ## 101. Symmetric Tree
 
 - https://leetcode.com/problems/symmetric-tree/
--  `Tree`,  `Depth-First Search`,  `Breadth-First Search`, `Binary Tree`
+-  `Tree`,  `Depth-First Search`,  `Breadth-First Search` `Binary Tree`
 -  Runtime 0 ms, Memory 2.8 MB
 ```go
 /**
@@ -983,7 +983,7 @@ func isMirror(left, right *TreeNode) bool {
 ## 108. Convert Sorted Array to Binary Search Tree
 
 - https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
-- `Array`, `Divide and Conquer`, `Tree`, `Binary Search Tree`, `Binary Tree`
+- `Array` `Divide and Conquer` `Tree` `Binary Search Tree` `Binary Tree`
 - Runtime 6 ms, Memory 3.5 MB
 ```go
 /**
@@ -1015,7 +1015,7 @@ func sortedArrayToBST(nums []int) *TreeNode {
 ## 88. Merge Sorted Array
 
 - https://leetcode.com/problems/merge-sorted-array/
-- `Array`, `Two Pointers`, `Sorting`
+- `Array` `Two Pointers` `Sorting`
 - Runtime 3 ms, Memory 2.3 MB
 ```go
 func merge(nums1 []int, m int, nums2 []int, n int) {
@@ -1049,7 +1049,7 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 ## 278. First Bad Version
 
 - https://leetcode.com/problems/first-bad-version/
-- `Binary Search`, `Interactive`
+- `Binary Search` `Interactive`
 - Runtime 0 ms, Memory 2 MB
 
 ```go
@@ -1081,7 +1081,7 @@ func firstBadVersion(end int) int {
 ## 70. Climbing Stairs
 
 - https://leetcode.com/problems/climbing-stairs/
-- `Dynamic Programming`, `Memoization`
+- `Dynamic Programming` `Memoization`
 - Runtime 1 ms, Memory 1.9 MB
 
 ```go
@@ -1103,7 +1103,7 @@ func climbStairs(n int) int {
 ## 326. Power of Three
 
 - https://leetcode.com/problems/power-of-three/
-- `Math`, `Recursion`
+- `Math` `Recursion`
 - Runtime 59 ms, Memory 6.5 MB
 ```go
 func isPowerOfThree(n int) bool {
@@ -1139,7 +1139,7 @@ func isPowerOfThree(n int) bool {
 ## 191. Number of 1 Bits
 
 - https://leetcode.com/problems/number-of-1-bits/
-- `Divide and Conquer`, `Bit Manipulation`
+- `Divide and Conquer` `Bit Manipulation`
 - Runtime 0 ms, Memory 2 MB
 ```go
 func hammingWeight(num uint32) int {
@@ -1228,7 +1228,7 @@ func hammingDistance(x int, y int) int {
 ## 190. Reverse Bits
 
 - https://leetcode.com/problems/reverse-bits/
-- `Divide and Conquer`, `Bit Manipulation`
+- `Divide and Conquer` `Bit Manipulation`
 - Runtime 0 ms, Memory 2.6 MB
 - `num = num >> 1` is faster than `num >>= 1`.
 ```go
@@ -1246,7 +1246,7 @@ func reverseBits(num uint32) uint32 {
 ## 118. Pascal's Triangle
 
 - https://leetcode.com/problems/pascals-triangle/
-- `Array`, `Dynamic Programming`
+- `Array` `Dynamic Programming`
 - Runtime 0 ms, Memory 2.1 MB
 ```go
 func generate(numRows int) [][]int {
@@ -1270,7 +1270,7 @@ func generate(numRows int) [][]int {
 ## 268. Missing Number
 
 - https://leetcode.com/problems/missing-number/
-- `Array`, `Hash Table`, `Math`, `Binary Search`, `Bit Manipulation`
+- `Array` `Hash Table` `Math` `Binary Search` `Bit Manipulation`
 - Runtime 35 ms, Memory 6.4 MB
 ```go
 func missingNumber(nums []int) int {
@@ -1302,7 +1302,7 @@ func missingNumber(nums []int) int {
 ## 202. Happy Number
 
 - https://leetcode.com/problems/happy-number/
-- `Hash Table`, `Math`, `Two Pointers`
+- `Hash Table` `Math` `Two Pointers`
 - Runtime 0 ms, Memory 1.9 MB
 ```go
 func isHappy(n int) bool {
@@ -1340,7 +1340,7 @@ func calc(n int) int {
 ## 171. Excel Sheet Column Number
 
 - https://leetcode.com/problems/excel-sheet-column-number/
-- `Math`, `String`
+- `Math` `String`
 - Runtime 0 ms, Memory 2.1 MB
 ```go
 func titleToNumber(s string) int {
@@ -1357,7 +1357,7 @@ func titleToNumber(s string) int {
 ## 69. Sqrt(x)
 
 - https://leetcode.com/problems/sqrtx/
-- `Math`, `Binary Search`
+- `Math` `Binary Search`
 - Runtime 0 ms, Memory 2.1 MB
 ```go
 func mySqrt(x int) int {
@@ -1387,7 +1387,7 @@ func mySqrt(x int) int {
 ## 94. Binary Tree Inorder Traversal
 
 - https://leetcode.com/problems/binary-tree-inorder-traversal/
-- `Stack`, `Tree`, `Depth-First Search`, `Binary Tree`
+- `Stack` `Tree` `Depth-First Search` `Binary Tree`
 - Runtime 0 ms, Memory 2 MB
 
 ```go
@@ -1406,7 +1406,7 @@ func inorderTraversal(root *TreeNode) []int {
 ## 160. Intersection of Two Linked Lists
 
 - https://leetcode.com/problems/intersection-of-two-linked-lists/
-- `Hash Table`, `Linked List`, `Two Pointers`
+- `Hash Table` `Linked List` `Two Pointers`
 - Runtime 74ms, Memory 7.5 MB
 ```go
 /**
@@ -1495,7 +1495,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 ## 169. Majority Element
 
 - https://leetcode.com/problems/majority-element/
-- `Array`, `Hash Table`, `Divide and Conquer`, `Sorting`, `Counting`
+- `Array` `Hash Table` `Divide and Conquer` `Sorting` `Counting`
 - Runtime 29 ms, Memory 7.1 MB
 ```go
 func majorityElement(nums []int) int {
@@ -1541,7 +1541,7 @@ func majorityElement(nums []int) int {
 ## 387. First Unique Character in a String
 
 - https://leetcode.com/problems/first-unique-character-in-a-string/
-- `Hash Table`, `String`, `Queue`, `Counting`
+- `Hash Table` `String` `Queue` `Counting`
 - Runtime 38 ms, Memory 5.4 MB
 
 ```go
@@ -1579,7 +1579,7 @@ func firstUniqChar(s string) int {
 ## 226. Invert Binary Tree
 
 - https://leetcode.com/problems/invert-binary-tree/
-- `Tree`, `Depth-First Search`, `Breadth-First Search`, `Binary Tree`
+- `Tree` `Depth-First Search` `Breadth-First Search` `Binary Tree`
 - Runtime 2 ms, Memory 2.1 MB
 ```go
 /**
@@ -1603,7 +1603,7 @@ func invertTree(root *TreeNode) *TreeNode {
 ## 543. Diameter of Binary Tree
 
 - https://leetcode.com/problems/diameter-of-binary-tree/
-- `Tree`, `Depth-First Search`, `Binary Tree`
+- `Tree` `Depth-First Search` `Binary Tree`
 - Runtime 3 ms, Memory 4.3 MB
 ```go
 /**
@@ -1642,7 +1642,7 @@ func max(a, b int) int {
 ## 35. Search Insert Position
 
 - https://leetcode.com/problems/search-insert-position/
-- `Array`, `Binary Search`
+- `Array` `Binary Search`
 - Runtime 0 ms, Memory 3 MB
 ```go
 func searchInsert(nums []int, target int) int {
@@ -1654,5 +1654,39 @@ func searchInsert(nums []int, target int) int {
 		i++
 	}
 	return i
+}
+```
+
+
+## 232. Implement Queue using Stacks
+
+- https://leetcode.com/problems/implement-queue-using-stacks/
+- `Stack` `Design` `Queue`
+- Runtime 0 ms, Memory 1.9 MB
+```go
+type MyQueue struct {
+	stack []int
+}
+
+func Constructor() MyQueue {
+	return MyQueue{}
+}
+
+func (m *MyQueue) Push(x int) {
+	m.stack = append(m.stack, x)
+}
+
+func (m *MyQueue) Pop() int {
+    first := m.stack[0]
+	m.stack = m.stack[1:]
+	return first
+}
+
+func (m *MyQueue) Peek() int {
+	return m.stack[0]
+}
+
+func (m *MyQueue) Empty() bool {
+	return len(m.stack) == 0
 }
 ```
