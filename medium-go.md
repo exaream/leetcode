@@ -63,9 +63,9 @@ func longestSubstring(s string, k int) int {
 		return len(s)
 	}
 
-	splited := strings.Split(s, badChar)
+	parts := strings.Split(s, badChar)
 	ans := 0
-	for _, v := range splited {
+	for _, v := range parts {
 		ans = max(ans, longestSubstring(v, k))
 	}
 
@@ -108,5 +108,40 @@ func (s *Solution) Shuffle() []int {
 	copy(s.tmp, s.org)
 	rand.Shuffle(len(s.tmp), func(i, j int) { s.tmp[i], s.tmp[j] = s.tmp[j], s.tmp[i] })
 	return s.tmp
+}
+```
+
+
+## 237. Delete Node in a Linked List
+
+- https://leetcode.com/problems/delete-node-in-a-linked-list/
+- `Linked List`
+- Runtime 4 ms, Memory 2.8 MB
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+	*node = *node.Next
+}
+```
+
+- Runtime 0 ms, Memory 2.8 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+	node.Val = node.Next.Val
+	node.Next = node.Next.Next
 }
 ```
