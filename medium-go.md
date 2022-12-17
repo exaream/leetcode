@@ -110,3 +110,38 @@ func (s *Solution) Shuffle() []int {
 	return s.tmp
 }
 ```
+
+
+## 237. Delete Node in a Linked List
+
+- https://leetcode.com/problems/delete-node-in-a-linked-list/
+- `Linked List`
+- Runtime 4 ms, Memory 2.8 MB
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+	*node = *node.Next
+}
+```
+
+- Runtime 0 ms, Memory 2.8 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+	node.Val = node.Next.Val
+	node.Next = node.Next.Next
+}
+```
