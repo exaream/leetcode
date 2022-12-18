@@ -1690,3 +1690,35 @@ func (m *MyQueue) Empty() bool {
 	return len(m.stack) == 0
 }
 ```
+
+
+## 27. Remove Element
+
+- https://leetcode.com/problems/remove-element/
+- `Array` `Two Pointers`
+- Runtime 5 ms, Memory 2.1 MB
+```go
+func removeElement(nums []int, val int) int {
+	for i := 0; i < len(nums); i++ {
+		if val == nums[i] {
+			nums = append(nums[:i], nums[i+1:]...)
+			i--
+		}
+	}
+	return len(nums)
+}
+```
+
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func removeElement(nums []int, val int) int {
+	ans := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] != val {
+			nums[ans] = nums[i]
+			ans++
+		}
+	}
+	return ans
+}
+```
