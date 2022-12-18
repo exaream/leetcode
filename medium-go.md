@@ -145,3 +145,32 @@ func deleteNode(node *ListNode) {
 	node.Next = node.Next.Next
 }
 ```
+
+
+## 46. Permutations
+
+- https://leetcode.com/problems/permutations/
+- `Array` `Backtracking`
+- Runtime 0 ms, Memory 2.5 MB
+```go
+func permute(nums []int) [][]int {
+	ans := make([][]int, 0)
+	dfs(&ans, nums, 0)
+	return ans
+}
+
+// Depth First Search
+func dfs(ans *[][]int, nums []int, start int) {
+	if start >= len(nums) {
+		tmp := make([]int, len(nums)) //be careful of these two lines
+		copy(tmp, nums)
+		*ans = append(*ans, tmp)
+		return
+	}
+	for i := start; i < len(nums); i++ {
+		nums[start], nums[i] = nums[i], nums[start]
+		dfs(ans, nums, start+1)
+		nums[start], nums[i] = nums[i], nums[start]
+	}
+}
+```
