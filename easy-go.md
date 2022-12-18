@@ -1744,3 +1744,27 @@ func lengthOfLastWord(s string) int {
 	return len(words[len(words)-1])
 }
 ```
+
+
+## 205. Isomorphic Strings
+
+- https://leetcode.com/problems/isomorphic-strings/
+- `Hash Table` `String`
+- Runtime 6 ms, Memory 2.6 MB
+```go
+func isIsomorphic(s string, t string) bool {
+	ptnS, ptnT := map[byte]int{}, map[byte]int{}
+
+	for i := range s {
+		if ptnS[s[i]] != ptnT[t[i]] {
+			return false
+		} else {
+			ptnS[s[i]] = i + 1
+			ptnT[t[i]] = i + 1
+
+		}
+	}
+
+	return true
+}
+```
