@@ -1722,3 +1722,25 @@ func removeElement(nums []int, val int) int {
 	return ans
 }
 ```
+
+
+## 58. Length of Last Word
+
+- https://leetcode.com/problems/length-of-last-word/
+- `String`
+- Runtime 2 ms, Memory 2 MB
+```go
+func lengthOfLastWord(s string) int {
+	words := strings.Fields(s)
+	return utf8.RuneCountInString(words[len(words)-1])
+}
+```
+
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func lengthOfLastWord(s string) int {
+	s = strings.Trim(s, " ")
+	words := strings.Split(s, " ")
+	return len(words[len(words)-1])
+}
+```
