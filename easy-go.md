@@ -1761,10 +1761,54 @@ func isIsomorphic(s string, t string) bool {
 		} else {
 			ptnS[s[i]] = i + 1
 			ptnT[t[i]] = i + 1
-
 		}
 	}
 
 	return true
+}
+```
+
+
+## 119. Pascal's Triangle II
+
+- https://leetcode.com/problems/pascals-triangle-ii/
+- `Array` `Dynamic Programming`
+- Runtime 2 ms, Memory 2 MB
+```go
+func getRow(rowIndex int) []int {
+	ans := make([]int, 0)
+
+	for i := 0; i <= rowIndex; i++ {
+		tmp := make([]int, len(ans))
+		copy(tmp, ans)
+		ans = append(ans, 1)
+		for j := 1; j < len(ans)-1; j++ {
+			ans[j] = tmp[j-1] + tmp[j]
+		}
+	}
+
+	return ans
+}
+```
+
+- Runtime 1 ms, Memory 2 MB
+```go
+func getRow(rowIndex int) []int {
+	numRows := rowIndex + 1
+	prevRow := make([]int, 0)
+	triangle := make([][]int, numRows)
+
+	for i := 1; i <= numRows; i++ {
+		row := make([]int, i)
+		row[0], row[i-1] = 1, 1
+
+		for j := 1; j < i-1; j++ {
+			row[j] = prevRow[j-1] + prevRow[j]
+		}
+
+		prevRow, triangle[i-1] = row, row
+	}
+
+	return triangle[rowIndex]
 }
 ```
