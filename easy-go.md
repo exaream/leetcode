@@ -1773,6 +1773,22 @@ func isIsomorphic(s string, t string) bool {
 
 - https://leetcode.com/problems/pascals-triangle-ii/
 - `Array` `Dynamic Programming`
+- Runtime 2 ms, Memory 2.1 MB
+```go
+func getRow(rowIndex int) []int {
+	row := []int{1}
+	for r := 0; r < rowIndex; r++ {
+		next := make([]int, r+2)
+		for i := range row {
+			next[i] += row[i]
+			next[i+1] += row[i]
+		}
+		row = next
+	}
+	return row
+}
+```
+
 - Runtime 2 ms, Memory 2 MB
 ```go
 func getRow(rowIndex int) []int {
@@ -1791,24 +1807,17 @@ func getRow(rowIndex int) []int {
 }
 ```
 
-- Runtime 1 ms, Memory 2 MB
+- Runtime 0 ms, Memory 2.2 MB
 ```go
 func getRow(rowIndex int) []int {
-	numRows := rowIndex + 1
-	prevRow := make([]int, 0)
-	triangle := make([][]int, numRows)
-
-	for i := 1; i <= numRows; i++ {
-		row := make([]int, i)
-		row[0], row[i-1] = 1, 1
-
-		for j := 1; j < i-1; j++ {
-			row[j] = prevRow[j-1] + prevRow[j]
-		}
-
-		prevRow, triangle[i-1] = row, row
+	if rowIndex == 0 {
+		return []int{1}
 	}
-
-	return triangle[rowIndex]
+	prev := getRow(rowIndex - 1)
+	ans := []int{1}
+	for i := 1; i < len(prev); i++ {
+		ans = append(ans, prev[i-1]+prev[i])
+	}
+	return append(ans, 1)
 }
 ```
