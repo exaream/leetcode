@@ -1821,3 +1821,40 @@ func getRow(rowIndex int) []int {
 	return append(ans, 1)
 }
 ```
+
+
+## 389. Find the Difference
+
+- https://leetcode.com/problems/find-the-difference/
+- `Hash Table` `String` `Bit Manipulation` `Sorting`
+- Runtime 2 ms, Memory 2.2 MB
+```go
+func findTheDifference(s string, t string) byte {
+	listS := []byte(s)
+	listT := []byte(t)
+	ans := listT[len(t)-1]
+
+	for i, _ := range listS {
+		ans += listT[i] - listS[i]
+	}
+
+	return ans
+}
+```
+
+- Runtime 0 ms, Memory 3 MB
+```go
+func findTheDifference(s string, t string) byte {
+	m := make(map[rune]int, len(s))
+	for _, r := range s {
+		m[r]++
+	}
+	for _, r := range t {
+		if m[r] == 0 {
+			return byte(r)
+		}
+		m[r]--
+	}
+	return 0
+}
+```
