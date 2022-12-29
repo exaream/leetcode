@@ -245,3 +245,20 @@ GROUP BY
 ORDER BY
     sell_date
 ```
+
+
+## 175. Combine Two Tables
+
+- https://leetcode.com/problems/combine-two-tables/
+- `Database`
+- Runtime 422 ms
+```sql
+SELECT
+    p.firstName,
+    p.lastName,
+    a.city,
+    a.state
+FROM
+    Person p
+    LEFT JOIN Address a ON p.personId = a.personId
+```
