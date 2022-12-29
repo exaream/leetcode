@@ -1858,3 +1858,35 @@ func findTheDifference(s string, t string) byte {
 	return 0
 }
 ```
+
+
+## 409. Longest Palindrome
+
+- https://leetcode.com/problems/longest-palindrome/
+- `Hash Table` `String` `Greedy`
+- Runtime 0 ms, Memory 2 MB
+```go
+func longestPalindrome(s string) int {
+	cnt := make(map[rune]int, 26)
+	for _, r := range s {
+		cnt[r]++
+	}
+
+	ans := 0
+	odd := false
+	for _, n := range cnt {
+		if n%2 == 0 {
+			ans += n
+		} else {
+			ans += n - 1
+			odd = true
+		}
+	}
+
+	if odd {
+		ans++
+	}
+
+	return ans
+}
+```
