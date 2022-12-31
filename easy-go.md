@@ -1964,3 +1964,30 @@ func minDepth(root *TreeNode) int {
 	return 0
 }
 ```
+
+
+## 112. Path Sum
+
+- https://leetcode.com/problems/path-sum/
+- `Tree` `Depth-First Search` `Breadth-First Search` `Binary Tree`
+- Runtime 4 ms, Memory 4.6 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func hasPathSum(root *TreeNode, targetSum int) bool {
+	if root == nil {
+		return false
+	}
+	if root.Val == targetSum && root.Left == nil && root.Right == nil {
+		return true
+	}
+	targetSum -= root.Val
+	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
+}
+```
