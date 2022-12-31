@@ -1991,3 +1991,42 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 	return hasPathSum(root.Left, targetSum) || hasPathSum(root.Right, targetSum)
 }
 ```
+
+
+## 367. Valid Perfect Square
+
+- https://leetcode.com/problems/valid-perfect-square/
+- `Math` `Binary Search`
+- Runtime 0 ms, Memory 1.9 MB
+```go
+func isPerfectSquare(num int) bool {
+	left, right := 1, num
+
+	for left <= right {
+		middle := (left + right) / 2
+		square := middle * middle
+
+		if square == num {
+			return true
+		}
+
+		if square > num {
+			right = middle - 1
+		} else if square < num {
+			left = middle + 1
+		}
+	}
+
+	return false
+}
+```
+
+- If you can use math.Sqrt() in this solution
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func isPerfectSquare(num int) bool {
+	sqrt := math.Sqrt(float64(num))
+	_, frac := math.Modf(sqrt)
+	return frac == 0
+}
+```
