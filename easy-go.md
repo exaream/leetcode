@@ -2219,6 +2219,14 @@ func maxDepth(s string) int {
 
 - https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/
 - `Array` `Sorting` `Heap (Priority Queue)`
+- Runtime 3 ms, Memory 2.9 MB
+```go
+func maxProduct(nums []int) int {
+	sort.Ints(nums)
+	length := len(nums)
+	return (nums[length-1] - 1) * (nums[length-2] - 1)
+}
+```
 - Runtime 0 ms, Memory 2.9 MB
 ```go
 func maxProduct(nums []int) int {
