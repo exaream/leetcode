@@ -2066,3 +2066,49 @@ func islandPerimeter(grid [][]int) int {
 	return ans
 }
 ```
+
+
+## 2236. Root Equals Sum of Children
+
+- https://leetcode.com/problems/root-equals-sum-of-children/
+- `Tree` `Binary Tree`
+- Runtime 3 ms, Memory 2 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func checkTree(root *TreeNode) bool {
+	return root.Val == (root.Left.Val + root.Right.Val)
+}
+```
+
+
+## 2367. Number of Arithmetic Triplets
+
+- https://leetcode.com/problems/number-of-arithmetic-triplets/
+- `Array` `Hash Table` `Two Pointers` `Enumeration`
+- Runtime 2 ms, Memory 2.1 MB
+```go
+func arithmeticTriplets(nums []int, diff int) int {
+	tmp := make([]bool, 201)
+	for _, num := range nums {
+		tmp[num] = true
+	}
+
+	ans := 0
+	for _, num := range nums {
+		if num+diff*2 <= 200 {
+			if tmp[num+diff] && tmp[num+diff*2] {
+				ans++
+			}
+		}
+	}
+
+	return ans
+}
+```
