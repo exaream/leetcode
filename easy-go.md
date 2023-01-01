@@ -2244,3 +2244,47 @@ func maxProduct(nums []int) int {
 	return (max - 1) * (second - 1)
 }
 ```
+
+
+## 1791. Find Center of Star Graph
+
+- https://leetcode.com/problems/find-center-of-star-graph/
+- `Graph`
+- Runtime 122 ms, Memory 15.3 MB
+```go
+func findCenter(edges [][]int) int {
+	m := make(map[int]bool, 2)
+
+	for _, v := range edges {
+		if m[v[0]] {
+			return v[0]
+		}
+		if m[v[1]] {
+			return v[1]
+		}
+
+		m[v[0]], m[v[1]] = true, true
+	}
+
+	return -1
+}
+```
+- Runtime 116 ms, Memory 13.8 MB
+```go
+func findCenter(edges [][]int) int {
+	m := make(map[int]struct{}, 2)
+
+	for _, v := range edges {
+		if _, ok := m[v[0]]; ok {
+			return v[0]
+		}
+		if _, ok := m[v[1]]; ok {
+			return v[1]
+		}
+
+		m[v[0]], m[v[1]] = struct{}{}, struct{}{}
+	}
+
+	return -1
+}
+```
