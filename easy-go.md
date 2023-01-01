@@ -2132,3 +2132,31 @@ func arithmeticTriplets(nums []int, diff int) int {
 	return ans
 }
 ```
+
+
+## 1720. Decode XORed Array
+
+- https://leetcode.com/problems/decode-xored-array/
+- `Array` `Bit Manipulation`
+- Runtime 31 ms, Memory 6.8 MB
+```go
+func decode(encoded []int, first int) []int {
+	ans := make([]int, len(encoded)+1)
+	ans[0] = first
+	for i, v := range encoded {
+		ans[i+1] = ans[i] ^ v
+	}
+	return ans
+}
+```
+- Runtime 25 ms, Memory 6.8 MB
+```go
+func decode(encoded []int, first int) []int {
+	ans := make([]int, len(encoded)+1)
+	ans[0] = first
+	for i := 1; i <= len(encoded); i++ {
+		ans[i] =  ans[i-1] ^ encoded[i-1]
+	}
+	return ans
+}
+```
