@@ -2030,3 +2030,39 @@ func isPerfectSquare(num int) bool {
 	return frac == 0
 }
 ```
+
+
+## 463. Island Perimeter
+
+- https://leetcode.com/problems/island-perimeter/
+- `Array` `Depth-First Search` `Breadth-First Search` `Matrix`
+- Runtime 44 ms, Memory 6.9 MB
+```go
+func islandPerimeter(grid [][]int) int {
+	rows := len(grid)
+	cols := len(grid[0])
+	ans := 0
+
+	for y := 0; y < rows; y++ {
+		for x := 0; x < cols; x++ {
+			if grid[y][x] != 1 {
+				continue
+			}
+			if x == 0 || grid[y][x-1] == 0 { // left
+				ans++
+			}
+			if x == cols-1 || grid[y][x+1] == 0 { // right
+				ans++
+			}
+			if y == 0 || grid[y-1][x] == 0 { // above
+				ans++
+			}
+			if y == rows-1 || grid[y+1][x] == 0 { // bottom
+				ans++
+			}
+		}
+	}
+
+	return ans
+}
+```
