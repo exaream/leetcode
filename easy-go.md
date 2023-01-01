@@ -2112,3 +2112,23 @@ func arithmeticTriplets(nums []int, diff int) int {
 	return ans
 }
 ```
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func arithmeticTriplets(nums []int, diff int) int {
+	ans := 0
+
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[j]-nums[i] == diff {
+				for k := j + 1; k < len(nums); k++ {
+					if nums[k]-nums[j] == diff {
+						ans++
+					}
+				}
+			}
+		}
+	}
+
+	return ans
+}
+```
