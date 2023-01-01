@@ -2160,3 +2160,56 @@ func decode(encoded []int, first int) []int {
 	return ans
 }
 ```
+
+
+## 1614. Maximum Nesting Depth of the Parentheses
+
+- https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/
+- `String` `Stack`
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func maxDepth(s string) int {
+	cnt := 0
+	ans := 0
+
+	for i := range s {
+		if s[i] == '(' {
+			cnt++
+		} else if s[i] == ')' {
+			cnt--
+		}
+
+		ans = max(ans, cnt)
+	}
+
+	return ans
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func maxDepth(s string) int {
+	ans, cnt := 0, 0
+
+	for _, r := range s {
+		switch r {
+		case rune('('):
+			cnt++
+		case rune(')'):
+			cnt--
+		}
+
+		if cnt > ans {
+			ans = cnt
+		}
+	}
+
+	return ans
+}
+```
