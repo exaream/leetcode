@@ -2392,3 +2392,25 @@ func (o *OrderedStream) Insert(idKey int, value string) []string {
  * param_1 := obj.Insert(idKey,value);
  */
  ```
+
+## 1588. Sum of All Odd Length Subarrays
+
+- https://leetcode.com/problems/sum-of-all-odd-length-subarrays/
+- `Array` `Math` `Prefix Sum`
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func sumOddLengthSubarrays(a []int) int {
+	ans := 0
+	length := len(a)
+
+	for i := 1; i <= length; i += 2 {
+		for j := 0; (j + i) <= length; j++ {
+			for _, v := range a[j : j+i] {
+				ans += v
+			}
+		}
+	}
+
+	return ans
+}
+```
