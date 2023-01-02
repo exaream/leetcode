@@ -2356,3 +2356,39 @@ func (ps *ParkingSystem) AddCar(carType int) bool {
 	}
 }
 ```
+
+
+## 1656. Design an Ordered Stream
+
+- https://leetcode.com/problems/design-an-ordered-stream/
+- `Array` `Hash Table` `Design` `Data Stream`
+- Runtime 66 ms, Memory 7.3 MB
+```go
+type OrderedStream struct {
+	ptr   int
+	stack map[int]string
+}
+
+func Constructor(n int) OrderedStream {
+	return OrderedStream{
+		ptr:   0,
+		stack: make(map[int]string, n),
+	}
+}
+
+func (o *OrderedStream) Insert(idKey int, value string) []string {
+	var ans []string
+	o.stack[idKey-1] = value
+	for o.stack[o.ptr] != "" {
+		ans = append(ans, o.stack[o.ptr])
+		o.ptr++
+	}
+	return ans
+}
+
+/**
+ * Your OrderedStream object will be instantiated and called as such:
+ * obj := Constructor(n);
+ * param_1 := obj.Insert(idKey,value);
+ */
+ ```
