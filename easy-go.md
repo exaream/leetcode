@@ -2288,3 +2288,71 @@ func findCenter(edges [][]int) int {
 	return -1
 }
 ```
+
+
+## 1603. Design Parking System
+
+- https://leetcode.com/problems/design-parking-system/
+- `Design` `Simulation` `Counting`
+- Runtime 47 ms, Memory 7.1 MB
+```go
+const (
+	Big = iota + 1
+	Medium
+	Small
+)
+
+type ParkingSystem struct {
+	slots map[int]int
+}
+
+func Constructor(big int, medium int, small int) ParkingSystem {
+	return ParkingSystem{
+		slots: map[int]int{Big: big, Medium: medium, Small: small},
+	}
+}
+
+func (ps *ParkingSystem) AddCar(carType int) bool {
+	if ps.slots[carType] > 0 {
+		ps.slots[carType]--
+		return true
+	}
+	return false
+}
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * obj := Constructor(big, medium, small);
+ * param_1 := obj.AddCar(carType);
+ */
+```
+
+- Runtime 35 ms, Memory 7.2 MB
+```go
+const (
+	Big = iota + 1
+	Medium
+	Small
+)
+
+type ParkingSystem struct {
+	space    map[int]int
+	occupied map[int]int
+}
+
+func Constructor(big int, medium int, small int) ParkingSystem {
+	return ParkingSystem{
+		space:    map[int]int{Big: big, Medium: medium, Small: small},
+		occupied: map[int]int{Big: 0, Medium: 0, Small: 0},
+	}
+}
+
+func (ps *ParkingSystem) AddCar(carType int) bool {
+	if ps.occupied[carType] >= ps.space[carType] {
+		return false
+	} else {
+		ps.occupied[carType]++
+		return true
+	}
+}
+```
