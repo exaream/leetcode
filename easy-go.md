@@ -2430,3 +2430,49 @@ func buildArray(nums []int) []int {
 	return ans
 }
 ```
+
+
+## 1863. Sum of All Subset XOR Totals
+
+- https://leetcode.com/problems/sum-of-all-subset-xor-totals/
+- `Array` `Math` `Backtracking` `Bit Manipulation` `Combinatorics`
+- Runtime 2 ms, Memory 1.9 MB
+```go
+func subsetXORSum(nums []int) int {
+	return dfs(nums, 0, 0)
+}
+
+// depth-first search
+func dfs(nums []int, i int, xorSum int) int {
+	if i == len(nums) {
+		return xorSum
+	}
+	return dfs(nums, i+1, xorSum) + dfs(nums, i+1, xorSum^nums[i])
+}
+```
+- Runtime 0 ms, Memory 2.8 MB
+```go
+func subsetXORSum(nums []int) int {
+	return backtrack(nums, 0, make([]int, 0), 0)
+}
+
+func backtrack(nums []int, pos int, list []int, ans int) int {
+	ans += xorSum(list)
+
+	for i := pos; i < len(nums); i++ {
+		list = append(list, nums[i])
+		ans = backtrack(nums, i+1, list, ans)
+		list = list[:len(list)-1]
+	}
+
+	return ans
+}
+
+func xorSum(list []int) int {
+	sum := 0
+	for i := 0; i < len(list); i++ {
+		sum ^= list[i]
+	}
+	return sum
+}
+```
