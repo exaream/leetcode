@@ -2513,3 +2513,52 @@ func numIdenticalPairs(nums []int) int {
 	return ans
 }
 ```
+
+
+## 1876. Substrings of Size Three with Distinct Characters
+
+- https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/
+- `Hash Table` `String` `Sliding Window` `Counting`
+- Runtime 0 ms, Memory 2 MB
+```go
+func countGoodSubstrings(s string) int {
+	ans := 0
+	for i := 0; i < len(s)-2; i++ {
+		alpha := make([]byte, 26)
+		ok := true
+		for _, v := range s[i : i+3] {
+			alpha[v-'a']++
+			if alpha[v-'a'] > 1 {
+				ok = false
+				break
+			}
+		}
+		if ok {
+			ans++
+		}
+	}
+
+	return ans
+}
+```
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func countGoodSubstrings(s string) int {
+	ans := 0
+
+	for i := 0; i < len(s)-2; i++ {
+		alpha := make([]byte, 26)
+		alpha[s[i]-'a']++
+		alpha[s[i+1]-'a']++
+		alpha[s[i+2]-'a']++
+
+		if alpha[s[i+1]-'a'] > 1 || alpha[s[i+2]-'a'] > 1 {
+			continue
+		}
+
+		ans++
+	}
+
+	return ans
+}
+```
