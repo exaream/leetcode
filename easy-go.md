@@ -2414,3 +2414,19 @@ func sumOddLengthSubarrays(a []int) int {
 	return ans
 }
 ```
+
+
+## 1920. Build Array from Permutation
+
+- https://leetcode.com/problems/build-array-from-permutation/
+- `Array` `Simulation`
+- Runtime 14 ms, Memory 6.4 MB
+```go
+func buildArray(nums []int) []int {
+	ans := make([]int, len(nums))
+	for i, v := range nums {
+		ans[i] = nums[v]
+	}
+	return ans
+}
+```
