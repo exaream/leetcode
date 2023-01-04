@@ -2642,3 +2642,34 @@ func getDecimalValue(head *ListNode) int {
 	return ans
 }
 ```
+
+
+## 2363. Merge Similar Items
+
+- https://leetcode.com/problems/merge-similar-items/
+- `Array` `Hash Table` `Sorting` `Ordered Set`
+- Runtime 18 ms, Memory 6.7 MB
+```go
+func mergeSimilarItems(items1 [][]int, items2 [][]int) [][]int {
+	m := make(map[int]int, 1000)
+	for _, v := range items1 {
+		m[v[0]] += v[1]
+	}
+	for _, v := range items2 {
+		m[v[0]] += v[1]
+	}
+
+	ans := make([][]int, 0, len(m))
+	for v, w := range m {
+		if w > 0 {
+			ans = append(ans, []int{v, w})
+		}
+	}
+
+	sort.Slice(ans, func(j, k int) bool {
+		return ans[j][0] < ans[k][0]
+	})
+
+	return ans
+}
+```
