@@ -2562,3 +2562,41 @@ func countGoodSubstrings(s string) int {
 	return ans
 }
 ```
+
+
+## 1971. Find if Path Exists in Graph
+
+- https://leetcode.com/problems/find-if-path-exists-in-graph/
+- `Depth-First Search` `Breadth-First Search` `Union Find` `Graph`
+- Runtime 367 ms, Memoery 43.5 MB
+
+```go
+func validPath(n int, edges [][]int, start int, end int) bool {
+	m := make(map[int][]int)
+	for _, e := range edges {
+		m[e[0]] = append(m[e[0]], e[1])
+		m[e[1]] = append(m[e[1]], e[0])
+	}
+
+	visited := make(map[int]bool)
+	stack := []int{start}
+
+	for len(stack) != 0 {
+		pop := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+
+		if pop == end {
+			return true
+		}
+
+		if visited[pop] {
+			continue
+		}
+
+		visited[pop] = true
+		stack = append(stack, m[pop]...)
+	}
+
+	return false
+}
+```
