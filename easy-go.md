@@ -2673,3 +2673,23 @@ func mergeSimilarItems(items1 [][]int, items2 [][]int) [][]int {
 	return ans
 }
 ```
+
+
+## 1475. Final Prices With a Special Discount in a Shop
+
+- https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/
+- `Array` `Stack` `Monotonic Stack`
+- Runtime 4 ms, Memory 3 MB
+```go
+func finalPrices(prices []int) []int {
+	for i := 0; i < len(prices)-1; i++ {
+		for j := i + 1; j < len(prices); j++ {
+			if prices[j] <= prices[i] {
+				prices[i] = prices[i] - prices[j]
+				break
+			}
+		}
+	}
+	return prices
+}
+```
