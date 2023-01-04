@@ -2600,3 +2600,45 @@ func validPath(n int, edges [][]int, start int, end int) bool {
 	return false
 }
 ```
+
+
+## 1290. Convert Binary Number in a Linked List to Integer
+
+- https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
+- `Linked List` `Math` `Linked List` `Math`
+- Runtime 0 ms, Memory 2 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getDecimalValue(head *ListNode) int {
+	ans := 0
+	for head != nil {
+		ans = ans * 2 + head.Val
+		head = head.Next
+	}
+	return ans
+}
+```
+- Runtime 0 ms, Memory 2 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getDecimalValue(head *ListNode) int {
+	ans := 0
+	for head != nil {
+		ans = ans << 1 | head.Val
+		head = head.Next
+	}
+	return ans
+}
+```
