@@ -2867,3 +2867,66 @@ func longestNiceSubstring(s string) string {
 	return s
 }
 ```
+
+
+## 938. Range Sum of BST
+
+- https://leetcode.com/problems/range-sum-of-bst/
+- `Tree` `Depth-First Search` `Binary Search Tree` `Binary Tree`
+- Runtime 103 ms, Memory 8.5 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func rangeSumBST(root *TreeNode, low int, high int) int {
+	if root == nil {
+		return 0
+	}
+
+	sum := 0
+	if low <= root.Val && root.Val <= high {
+		sum += root.Val
+	}
+
+	if root.Val > low {
+		sum += rangeSumBST(root.Left, low, high)
+	}
+
+	if root.Val < high {
+		sum += rangeSumBST(root.Right, low, high)
+	}
+
+	return sum
+}
+```
+- Runtime 82 ms, Memory 9.1 MB
+```go
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func rangeSumBST(root *TreeNode, low int, high int) int {
+	if root == nil {
+		return 0
+	}
+
+    sum := 0
+	if low <= root.Val && root.Val <= high {
+		sum += root.Val
+	}
+
+	sum +=  rangeSumBST(root.Left, low, high)
+	sum +=  rangeSumBST(root.Right, low, high)
+
+	return sum
+}
+```
