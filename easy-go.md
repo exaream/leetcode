@@ -2919,7 +2919,7 @@ func rangeSumBST(root *TreeNode, low int, high int) int {
 		return 0
 	}
 
-    sum := 0
+	sum := 0
 	if low <= root.Val && root.Val <= high {
 		sum += root.Val
 	}
