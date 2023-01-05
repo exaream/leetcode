@@ -2776,3 +2776,94 @@ func fib(n int) int {
 	return b
 }
 ```
+
+
+## 1763. Longest Nice Substring
+
+- https://leetcode.com/problems/longest-nice-substring/
+- `Hash Table` `String` `Divide and Conquer` `Bit Manipulation`
+- Runtime 4 ms, Memory 2 MB
+```go
+func longestNiceSubstring(s string) string {
+	ans := ""
+	runes := []rune(s)
+
+	for i := 0; i < len(runes); i++ {
+		for j := len(runes); j > i+1; j-- {
+			sub := runes[i:j]
+
+			if isNice(sub) {
+				if len(sub) > len(ans) {
+					ans = string(sub)
+				}
+			}
+		}
+	}
+
+	return ans
+}
+
+func isNice(runes []rune) bool {
+	if len(runes) == 0 {
+		return false
+	}
+
+	m := [52]bool{}
+	for _, r := range runes {
+		if r >= 'a' && r <= 'z' {
+			m[r-'a'] = true
+		} else {
+			m[r-'A'+26] = true
+		}
+	}
+
+	for i := 0; i < len(m); i++ {
+		if !m[i] {
+			continue
+		}
+
+		j := i
+
+		if j < 26 {
+			j += 26
+		} else {
+			j -= 26
+		}
+
+		if !m[j] {
+			return false
+		}
+	}
+
+	return true
+}
+```
+- Runtime 0 ms, Memory 2.3 MB
+```go
+func longestNiceSubstring(s string) string {
+	if len(s) < 2 {
+		return ""
+	}
+
+	set := make(map[rune]bool)
+	for _, r := range s {
+		set[r] = true
+	}
+
+	for i, r := range s {
+		if set[unicode.ToLower(r)] && set[unicode.ToUpper(r)] {
+			continue
+		}
+
+		left := longestNiceSubstring(s[:i])
+		right := longestNiceSubstring(s[i+1:])
+		if len(left) >= len(right) {
+			return left
+		} else {
+			return right
+		}
+	}
+
+	return s
+}
+```
