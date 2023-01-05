@@ -2930,3 +2930,39 @@ func rangeSumBST(root *TreeNode, low int, high int) int {
 	return sum
 }
 ```
+
+
+## 933. Number of Recent Calls
+
+- https://leetcode.com/problems/number-of-recent-calls/
+- `Design` `Queue` `Data Stream`
+- Runtime 124 ms, Memory 8.5 MB
+```go
+type RecentCounter struct {
+	stack []int
+}
+
+func Constructor() RecentCounter {
+	return RecentCounter{}
+}
+
+func (rc *RecentCounter) Ping(t int) int {
+	rc.stack = append(rc.stack, t)
+	min := t - 3000
+
+	for i, v := range rc.stack {
+		if v >= min {
+			rc.stack = rc.stack[i:]
+			return len(rc.stack)
+		}
+	}
+
+	return 0
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * obj := Constructor();
+ * param_1 := obj.Ping(t);
+ */
+ ```
