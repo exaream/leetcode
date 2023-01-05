@@ -2735,3 +2735,44 @@ func abs(n int) int {
 	return n
 }
 ```
+
+
+## 509. Fibonacci Number
+
+- https://leetcode.com/problems/fibonacci-number/
+- `Math` `Dynamic Programming` `Recursion` `Memoization`
+- Runtime 15 ms, Memory 1.9 MB
+```go
+// Recursion
+func fib(n int) int {
+	if n < 2 {
+		return n
+	}
+	return fib(n-1) + fib(n-2)
+}
+```
+- Runtime 0 ms, Memory 2 MB
+```go
+// Memoization
+func fib(n int) int {
+	m := []int{0, 1, 1}
+	for i := 3; i <= n; i++ {
+		m = append(m, m[i-1]+m[i-2])
+	}
+	return m[n]
+}
+```
+- Runtime 0 ms, Memory 1.9 MB
+```go
+func fib(n int) int {
+	if n < 2 {
+		return n
+	}
+
+	a, b := 0, 1
+	for i := 1; i < n; i++ {
+		a, b = b, a+b
+	}
+	return b
+}
+```
