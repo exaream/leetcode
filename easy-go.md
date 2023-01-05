@@ -2966,3 +2966,34 @@ func (rc *RecentCounter) Ping(t int) int {
  * param_1 := obj.Ping(t);
  */
  ```
+
+
+## 1137. N-th Tribonacci Number
+
+- https://leetcode.com/problems/n-th-tribonacci-number/
+- `Math` `Dynamic Programming` `Memoization`
+- Runtime 2 ms, 1.9 MB
+```go
+func tribonacci(n int) int {
+	if n < 2 {
+		return n
+	}
+
+	a, b, c := 1, 0, 0
+	for i := 2; i <= n; i++ {
+		a, b, c = a+b+c, a, b
+	}
+
+	return a
+}
+```
+- Runtime 0 ms, Memory 2 MB
+```go
+func tribonacci(n int) int {
+	m := []int{0, 1, 1, 2}
+	for i := 4; i <= n; i++ {
+		m = append(m, m[i-1]+m[i-2]+m[i-3])
+	}
+	return m[n]
+}
+```
