@@ -325,3 +325,38 @@ WHERE
 ```sql
 SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
 ```
+
+## 183. Customers Who Never Order
+
+- https://leetcode.com/problems/customers-who-never-order/
+- `Database`
+- Runtime 1983 ms
+```sql
+SELECT
+    c.name AS Customers
+FROM
+    Customers c
+    LEFT JOIN Orders o ON c.id = o.customerID
+WHERE
+    o.id IS NULL;
+```
+- Runtime 463 ms
+```sql
+SELECT
+    name AS Customers
+FROM
+    Customers
+WHERE
+    id NOT IN(
+        SELECT
+            customerId
+        FROM
+            Orders
+    );
+```
+- Runtime 429 ms
+```sql
+SELECT name AS Customers
+FROM Customers
+WHERE id NOT IN(SELECT customerId FROM Orders);
+```
