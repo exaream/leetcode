@@ -305,3 +305,23 @@ WHERE
 ```sql
 SELECT product_id FROM Products WHERE low_fats = 'Y' AND recyclable = 'Y';
 ```
+
+
+## 584. Find Customer Referee
+
+- https://leetcode.com/problems/find-customer-referee/
+- `Database`
+- Runtime 699 ms
+```sql
+SELECT
+    name
+FROM
+    Customer
+WHERE
+    referee_id IS NULL
+    OR referee_id != 2;
+```
+- Runtime 484 ms
+```sql
+SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
+```
