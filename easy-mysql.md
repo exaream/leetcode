@@ -425,7 +425,8 @@ WHERE
 - Runtime 811 ms
 ```sql
 # Please write a DELETE statement and DO NOT write a SELECT statement.
-# In case that you can use SELECT statement to improve performance:
+# In case that you can use a SELECT statement to improve performance:
+# WITH (Common Table Expressions)
 WITH cte AS (
     SELECT
         MIN(id) AS id
@@ -448,7 +449,7 @@ WHERE
 - Runtime 546 ms
 ```sql
 # Please write a DELETE statement and DO NOT write a SELECT statement.
-# In case that you can use SELECT statement to improve performance:
+# In case that you can use a SELECT statement to improve performance:
 DELETE FROM
     Person
 WHERE
