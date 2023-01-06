@@ -301,11 +301,6 @@ WHERE
     AND recyclable = 'Y';
 ```
 
-- Runtime 488 ms
-```sql
-SELECT product_id FROM Products WHERE low_fats = 'Y' AND recyclable = 'Y';
-```
-
 
 ## 584. Find Customer Referee
 
@@ -321,10 +316,7 @@ WHERE
     referee_id IS NULL
     OR referee_id != 2;
 ```
-- Runtime 484 ms
-```sql
-SELECT name FROM Customer WHERE referee_id IS NULL OR referee_id != 2;
-```
+
 
 ## 183. Customers Who Never Order
 
@@ -354,9 +346,4 @@ WHERE
             Orders
     );
 ```
-- Runtime 429 ms
-```sql
-SELECT name AS Customers
-FROM Customers
-WHERE id NOT IN(SELECT customerId FROM Orders);
-```
+
