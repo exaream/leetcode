@@ -284,3 +284,24 @@ WHERE
 ```sql
 SELECT name, population, area FROM World WHERE area >= 3000000 OR population >= 25000000;
 ```
+
+
+## 1757. Recyclable and Low Fat Products
+
+- https://leetcode.com/problems/recyclable-and-low-fat-products/
+- `Database`
+- Runtime 555 ms
+```sql
+SELECT
+    product_id
+FROM
+    Products
+WHERE
+    low_fats = 'Y'
+    AND recyclable = 'Y';
+```
+
+- Runtime 488 ms
+```sql
+SELECT product_id FROM Products WHERE low_fats = 'Y' AND recyclable = 'Y';
+```
