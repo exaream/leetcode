@@ -381,3 +381,28 @@ FROM
 ORDER BY
     employee_id;
 ```
+
+
+## 627. Swap Salary
+
+- https://leetcode.com/problems/swap-salary/
+- `Database`
+- Runtime 259 ms
+```sql
+UPDATE
+    Salary
+SET
+    sex = CASE
+        WHEN sex = 'f' THEN 'm'
+        WHEN sex = 'm' THEN 'f'
+    END;
+```
+
+- Runtime 245 ms
+```sql
+UPDATE
+    Salary
+SET
+    sex = IF(sex = 'f', 'm', 'f');
+```
+
