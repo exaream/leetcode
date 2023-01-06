@@ -347,3 +347,37 @@ WHERE
     );
 ```
 
+
+## 1873. Calculate Special Bonus
+
+- https://leetcode.com/problems/calculate-special-bonus/
+- `Database`
+- Runtime 609 ms
+```sql
+SELECT
+    employee_id,
+    CASE
+        WHEN employee_id % 2 <> 0
+        AND name NOT LIKE 'M%' THEN salary
+        ELSE 0
+    END AS bonus
+FROM
+    employees
+ORDER BY
+    employee_id;
+```
+- Runtime 576 ms
+```sql
+SELECT
+    employee_id,
+    IF(
+        employee_id % 2 <> 0
+        AND name NOT LIKE 'M%',
+        salary,
+        0
+    ) AS bonus
+FROM
+    Employees
+ORDER BY
+    employee_id;
+```
