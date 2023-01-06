@@ -406,3 +406,63 @@ SET
     sex = IF(sex = 'f', 'm', 'f');
 ```
 
+
+## 196. Delete Duplicate Emails
+
+- https://leetcode.com/problems/delete-duplicate-emails/
+- `Database`
+- Runtime 1031 ms
+```sql
+# Please write a DELETE statement and DO NOT write a SELECT statement.
+DELETE a
+FROM
+    Person a
+    INNER JOIN Person b
+WHERE
+    a.email = b.email
+    AND a.id > b.id
+```
+- Runtime 811 ms
+```sql
+# Please write a DELETE statement and DO NOT write a SELECT statement.
+# In case that you can use SELECT statement to improve performance:
+WITH cte AS (
+    SELECT
+        MIN(id) AS id
+    FROM
+        Person
+    GROUP BY
+        email
+)
+
+DELETE FROM
+    Person
+WHERE
+    ID NOT IN (
+        SELECT
+            id
+        FROM
+            cte
+    )
+```
+- Runtime 546 ms
+```sql
+# Please write a DELETE statement and DO NOT write a SELECT statement.
+# In case that you can use SELECT statement to improve performance:
+DELETE FROM
+    Person
+WHERE
+    id NOT IN (
+        SELECT
+            id
+        FROM
+            (
+                SELECT
+                    MIN(id) AS id
+                FROM
+                    Person
+                GROUP BY
+                    email
+            ) AS FirstIds
+    );
+```
