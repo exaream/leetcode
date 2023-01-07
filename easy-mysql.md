@@ -7,7 +7,6 @@
 
 - https://leetcode.com/problems/game-play-analysis-i/
 - Runtime 791 ms
-- `Database`
 ```sql
 SELECT
     player_id,
@@ -22,7 +21,6 @@ GROUP BY
 ## 586. Customer Placing the Largest Number of Orders
 
 - https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/
-- `Database`
 - Runtime 513 ms
 ```sql
 SELECT
@@ -61,7 +59,6 @@ LIMIT
 ## 607. Sales Person
 
 - https://leetcode.com/problems/sales-person/
-- `Database`
 - Runtime 1007 ms
 ```sql
 SELECT
@@ -83,7 +80,6 @@ WHERE
 ## 1050. Actors and Directors Who Cooperated At Least Three Times
 
 - https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/
-- `Database`
 - Runtime 393 ms
 ```sql
 SELECT
@@ -102,7 +98,6 @@ HAVING
 ## 1084. Sales Analysis III
 
 - https://leetcode.com/problems/sales-analysis-iii/
-- `Database`
 - Runtime 1532 ms
 ```sql
 SELECT
@@ -144,7 +139,6 @@ HAVING
 ## 1141. User Activity for the Past 30 Days I
 
 - https://leetcode.com/problems/user-activity-for-the-past-30-days-i/
-- `Database`
 - Runtime 599 ms
 ```sql
 SELECT
@@ -163,7 +157,6 @@ GROUP BY
 ## 1148. Article Views I
 
 - https://leetcode.com/problems/article-views-i/
-- `Database`
 - Runtime 527 ms
 ```sql
 SELECT
@@ -188,7 +181,6 @@ SELECT DISTINCT(author_id) AS id FROM Views WHERE author_id = viewer_id ORDER BY
 ## 1407. Top Travellers
 
 - https://leetcode.com/problems/top-travellers/
-- `Database`
 - Runtime 1030 ms
 ```sql
 SELECT
@@ -228,7 +220,6 @@ ORDER BY
 ## 1484. Group Sold Products By The Date
 
 - https://leetcode.com/problems/group-sold-products-by-the-date/
-- `Database`
 - Runtime 498 ms
 ```sql
 SELECT
@@ -250,7 +241,6 @@ ORDER BY
 ## 175. Combine Two Tables
 
 - https://leetcode.com/problems/combine-two-tables/
-- `Database`
 - Runtime 422 ms
 ```sql
 SELECT
@@ -267,7 +257,6 @@ FROM
 ## 595. Big Countries
 
 - https://leetcode.com/problems/big-countries/
-- `Database`
 - Runtime 432 ms
 ```sql
 SELECT
@@ -289,7 +278,6 @@ SELECT name, population, area FROM World WHERE area >= 3000000 OR population >= 
 ## 1757. Recyclable and Low Fat Products
 
 - https://leetcode.com/problems/recyclable-and-low-fat-products/
-- `Database`
 - Runtime 555 ms
 ```sql
 SELECT
@@ -305,7 +293,6 @@ WHERE
 ## 584. Find Customer Referee
 
 - https://leetcode.com/problems/find-customer-referee/
-- `Database`
 - Runtime 699 ms
 ```sql
 SELECT
@@ -321,7 +308,6 @@ WHERE
 ## 183. Customers Who Never Order
 
 - https://leetcode.com/problems/customers-who-never-order/
-- `Database`
 - Runtime 1983 ms
 ```sql
 SELECT
@@ -351,7 +337,6 @@ WHERE
 ## 1873. Calculate Special Bonus
 
 - https://leetcode.com/problems/calculate-special-bonus/
-- `Database`
 - Runtime 609 ms
 ```sql
 SELECT
@@ -386,7 +371,6 @@ ORDER BY
 ## 627. Swap Salary
 
 - https://leetcode.com/problems/swap-salary/
-- `Database`
 - Runtime 259 ms
 ```sql
 UPDATE
@@ -410,7 +394,6 @@ SET
 ## 196. Delete Duplicate Emails
 
 - https://leetcode.com/problems/delete-duplicate-emails/
-- `Database`
 - Runtime 1031 ms
 ```sql
 # Please write a DELETE statement and DO NOT write a SELECT statement.
@@ -472,7 +455,6 @@ WHERE
 ## 1667. Fix Names in a Table
 
 - https://leetcode.com/problems/fix-names-in-a-table/
-- `Database`
 - Runtime 688 ms
 ```sql
 SELECT
@@ -491,7 +473,6 @@ ORDER BY
 ## 1527. Patients With a Condition
 
 - https://leetcode.com/problems/patients-with-a-condition/description/
-- `Database`
 - Runtime 352 ms
 ```sql
 -- \b matches either a non-word character (a space etc) or the position before the first character in the string.
@@ -521,7 +502,6 @@ WHERE
 ## 1965. Employees With Missing Information
 
 - https://leetcode.com/problems/employees-with-missing-information/
-- `Database`
 - Runtime 553 ms
 ```sql
 SELECT employee_id
