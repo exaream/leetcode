@@ -486,3 +486,33 @@ FROM
 ORDER BY
     user_id;
 ```
+
+
+## 1527. Patients With a Condition
+
+- https://leetcode.com/problems/patients-with-a-condition/description/
+- `Database`
+- Runtime 352 ms
+```sql
+-- \b matches either a non-word character (a space etc) or the position before the first character in the string.
+SELECT
+    patient_id,
+    patient_name,
+    conditions
+FROM
+    Patients
+WHERE
+    conditions REGEXP '\\bDIAB1';
+```
+- Runtime 312 ms
+```sql
+SELECT
+    patient_id,
+    patient_name,
+    conditions
+FROM
+    Patients
+WHERE
+    conditions LIKE 'DIAB1%'
+    OR conditions LIKE '% DIAB1%';
+```
