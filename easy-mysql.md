@@ -516,3 +516,44 @@ WHERE
     conditions LIKE 'DIAB1%'
     OR conditions LIKE '% DIAB1%';
 ```
+
+
+## 1965. Employees With Missing Information
+
+- https://leetcode.com/problems/employees-with-missing-information/
+- `Database`
+- Runtime 553 ms
+```sql
+SELECT employee_id
+FROM Employees
+WHERE employee_id NOT IN (SELECT employee_id FROM Salaries)
+UNION
+SELECT employee_id
+FROM Salaries
+WHERE employee_id NOT IN (SELECT employee_id FROM Employees)
+ORDER BY employee_id;
+```
+- Runtime 492 ms
+```sql
+SELECT e.employee_id
+FROM Employees e LEFT JOIN Salaries s ON e.employee_id = s.employee_id
+WHERE e.name IS NULL OR s.salary IS NULL
+UNION ALL
+SELECT s.employee_id
+FROM Salaries s LEFT JOIN Employees e ON s.employee_id = e.employee_id
+WHERE e.name IS NULL OR s.salary IS NULL
+ORDER BY employee_id;
+```
+- Runtime 454 ms
+```sql
+SELECT tmp.employee_id
+FROM
+    (
+        -- Can use USING() to join 2 tables if they have the same key.
+        SELECT * FROM Employees LEFT JOIN Salaries USING(employee_id)
+        UNION
+        SELECT * FROM Employees RIGHT JOIN Salaries USING(employee_id)
+    ) AS tmp
+WHERE tmp.salary IS NULL OR tmp.name IS NULL
+ORDER BY tmp.employee_id;
+```
