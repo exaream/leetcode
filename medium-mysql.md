@@ -95,3 +95,56 @@ FROM
     tree t1
 ORDER BY id
 ```
+
+
+## 176. Second Highest Salary
+
+- https://leetcode.com/problems/second-highest-salary/
+- Runtime 450 ms
+```sql
+-- CROSS JOIN
+SELECT
+    MAX(e2.salary) AS SecondHighestSalary
+FROM
+    Employee e1,
+    Employee e2
+WHERE
+    e1.salary > e2.salary;
+```
+- Runtime 369 ms
+```sql
+-- LIMIT and OFFSET
+SELECT
+(
+    SELECT DISTINCT salary
+    FROM Employee
+    ORDER BY salary DESC
+    LIMIT 1
+    OFFSET 1
+) AS SecondHighestSalary;
+```
+- Runtime 314 ms
+```sql
+-- MAX() of multiple SELECT clauses
+SELECT
+    MAX(salary) AS SecondHighestSalary
+FROM
+    Employee
+WHERE
+    salary < (SELECT MAX(Salary) FROM Employee);
+```
+- Runtime 229 ms
+```sql
+-- LIMIT, OFFSET and IFFNULL()
+SELECT
+    IFNULL(
+        NULL,
+        (
+            SELECT DISTINCT salary
+            FROM Employee
+            ORDER BY salary DESC
+            LIMIT 1
+            OFFSET 1
+        )
+    ) AS SecondHighestSalary;
+```
