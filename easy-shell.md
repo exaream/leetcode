@@ -8,7 +8,7 @@
 
 - Runtime 99 ms, Memory 3.2 MB
 ```shell
-# -e Multiple regular expressions can be specified
+# -e: Multiple regular expressions can be specified
 grep -e "^[0-9]\{3\}\-[0-9]\{3\}\-[0-9]\{4\}$" -e "^([0-9]\{3\}) [0-9]\{3\}\-[0-9]\{4\}$" file.txt
 ```
 - Runtime 82 ms, Memory 3.1 MB
