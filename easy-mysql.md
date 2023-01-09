@@ -563,4 +563,50 @@ SELECT  product_id, 'store3' AS store, store3 AS price FROM Products WHERE store
 ```
 
 
+## 1581. Customer Who Visited but Did Not Make Any Transactions
 
+- https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/
+- Runtime 2067 ms
+```sql
+SELECT
+    v.customer_id,
+    COUNT(v.visit_id) AS count_no_trans
+FROM
+    Visits v
+WHERE
+    NOT EXISTS (
+        SELECT
+            visit_id 
+        FROM
+            Transactions t 
+        WHERE
+            v.visit_id = t.visit_id
+    )
+GROUP BY
+    v.customer_id
+```
+- Runtime 1338 ms
+```sql
+SELECT
+    v.customer_id,
+    COUNT(v.visit_id) AS count_no_trans
+FROM
+    Visits v
+    LEFT JOIN Transactions t ON v.visit_id = t.visit_id
+WHERE
+    t.transaction_id IS NULL
+GROUP BY
+    v.customer_id
+```
+- Runtime 1333 ms
+```sql
+SELECT
+    customer_id,
+    COUNT(visit_id) AS count_no_trans
+FROM
+    Visits
+WHERE
+    visit_id NOT IN (SELECT DISTINCT(visit_id) FROM Transactions)
+GROUP BY
+    customer_id;
+```
