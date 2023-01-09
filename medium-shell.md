@@ -13,7 +13,7 @@ cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -r | awk '{print $2 " " $
 ```
 - Runtime 62 ms, Memory 3.8 MB
 ```shell
-# NF: field number
+# NF: number of fields
 awk '
 BEGIN {
     init = 0;
