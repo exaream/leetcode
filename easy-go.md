@@ -3031,3 +3031,29 @@ func max(a, b int) int {
 	return b
 }
 ```
+
+
+## 2413. Smallest Even Multiple
+
+- https://leetcode.com/problems/smallest-even-multiple/
+- `Math` `Number Theory`
+- Runtime 2 ms, Memory 1.9 MB
+```go
+func smallestEvenMultiple(n int) int {
+	switch n % 2 {
+	case 0:
+		return n
+	default:
+		return n * 2
+	}
+}
+```
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func smallestEvenMultiple(n int) int {
+	for n%2 == 0 {
+		return n
+	}
+	return n * 2
+}
+```

@@ -8,6 +8,7 @@
 |equivalent|同等の、等価物|
 |distinct|他とまったく別な、別個の|
 |inclusive|すべてを含んだ、包括した|
+|multiple|倍数|
 |occurrence|発生|
 |permutation|順列|
 |singly|単独で|
