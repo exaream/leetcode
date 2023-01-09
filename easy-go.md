@@ -2997,3 +2997,37 @@ func tribonacci(n int) int {
 	return m[n]
 }
 ```
+
+
+## 1266. Minimum Time Visiting All Points
+
+- https://leetcode.com/problems/minimum-time-visiting-all-points/
+- `Array` `Math` `Geometry`
+- Runtime 0 ms, Memory 3.3 MB
+```go
+func minTimeToVisitAllPoints(points [][]int) int {
+	var diffX, diffY, seconds int
+
+	for i := 0; i < len(points)-1; i++ {
+		diffX = abs(points[i+1][0] - points[i][0])
+		diffY = abs(points[i+1][1] - points[i][1])
+		seconds += max(diffX, diffY)
+	}
+
+	return seconds
+}
+
+func abs(n int) int {
+	if n < 0 {
+		return -n
+	}
+	return n
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+```
