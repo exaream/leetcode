@@ -625,6 +625,17 @@ FROM
 WHERE
     w1.temperature > w2.temperature;
 ```
+- Runtime 441 ms
+```sql
+-- "DATE_ADD(fooDate, INTERVAL 1 DAY)" is faster than "+ INTERVAL 1 DAY"
+SELECT
+    w1.id
+FROM
+    Weather w1
+    INNER JOIN Weather w2 ON w1.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY)
+WHERE
+    w1.temperature > w2.temperature;
+```
 - Runtime 396 ms
 ```sql
 -- CROSS JOIN
