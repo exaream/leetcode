@@ -3160,3 +3160,40 @@ func (m *MyHashSet) Contains(key int) bool {
  * param_3 := obj.Contains(key);
  */
 ```
+
+
+## 1025. Divisor Game
+
+- https://leetcode.com/problems/divisor-game/
+- `Math` `Dynamic Programming` `Brainteaser` `Game Theory`
+- Runtime 1 ms, Memory 1.9 MB
+```go
+func divisorGame(n int) bool {
+	return n%2 == 0
+}
+```
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func divisorGame(n int) bool {
+	turn := 1
+	a := 0
+	b := 0
+
+	for {
+		if n < 0 {
+			return a > b
+		}
+
+		if turn%2 != 0 {
+			a++
+		} else {
+			b++
+		}
+
+		turn++
+		n--
+	}
+
+	return a > b
+}
+```
