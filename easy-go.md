@@ -3057,3 +3057,29 @@ func smallestEvenMultiple(n int) int {
 	return n * 2
 }
 ```
+
+
+## 2427. Number of Common Factors
+
+- https://leetcode.com/problems/number-of-common-factors/
+- `Math` `Enumeration` `Number Theory` 
+- Runtime 1 ms, Memory 1.9 MB
+```go
+func commonFactors(a int, b int) int {
+	end := min(a, b)
+	ans := 0
+	for i := 1; i <= end; i++ {
+		if a%i == 0 && b%i == 0 {
+			ans++
+		}
+	}
+	return ans
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+```

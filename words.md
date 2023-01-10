@@ -4,6 +4,7 @@
 |---|---|
 |assume|仮定する|
 |binary search tree|2分探索木。木構造の探索木のうち、「左の子 ＜ 親ノード ＜ 右の子」という関係が成り立っている探索木|
+|common factor|共通因子、共通因数|
 |fibonacci sequence|フィボナッチ数列。前2つの数字を足した数字の数列|
 |equivalent|同等の、等価物|
 |distinct|他とまったく別な、別個の|
