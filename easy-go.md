@@ -3083,3 +3083,80 @@ func min(a, b int) int {
 	return b
 }
 ```
+
+
+## 705. Design HashSet
+
+- https://leetcode.com/problems/design-hashset/
+- `Array` `Hash Table` `Linked List` `Design` `Hash Function`
+- Runtime 72 ms, Memory 8.2 MB
+
+```go
+type MyHashSet struct {
+	set map[int]bool
+}
+
+func Constructor() MyHashSet {
+	return MyHashSet{
+		set: make(map[int]bool, 0),
+	}
+}
+
+func (m *MyHashSet) Add(key int) {
+	m.set[key] = true
+}
+
+func (m *MyHashSet) Remove(key int) {
+	delete(m.set, key)
+}
+
+func (m *MyHashSet) Contains(key int) bool {
+	if m.set[key] {
+		return true
+	}
+	return false
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Add(key);
+ * obj.Remove(key);
+ * param_3 := obj.Contains(key);
+ */
+```
+- Runtime 65 ms, Memory 8.2 MB
+```go
+type MyHashSet struct {
+	set map[int]struct{}
+}
+
+func Constructor() MyHashSet {
+	return MyHashSet{
+		set: make(map[int]struct{}),
+	}
+}
+
+func (m *MyHashSet) Add(key int) {
+	if !m.Contains(key) {
+		m.set[key] = struct{}{}
+	}
+}
+
+func (m *MyHashSet) Remove(key int) {
+	delete(m.set, key)
+}
+
+func (m *MyHashSet) Contains(key int) bool {
+	_, ok := m.set[key]
+	return ok
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Add(key);
+ * obj.Remove(key);
+ * param_3 := obj.Contains(key);
+ */
+```
