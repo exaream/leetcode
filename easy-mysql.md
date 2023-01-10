@@ -610,3 +610,30 @@ WHERE
 GROUP BY
     customer_id;
 ```
+
+
+## 197. Rising Temperature
+
+- https://leetcode.com/problems/rising-temperature/
+- Runtime 933 ms
+```sql
+SELECT
+    w1.id
+FROM
+    Weather w1
+    INNER JOIN Weather w2 ON w1.recordDate = w2.recordDate + INTERVAL 1 DAY
+WHERE
+    w1.temperature > w2.temperature;
+```
+- Runtime 396 ms
+```sql
+-- CROSS JOIN
+SELECT
+    w1.id
+FROM
+    Weather w1,
+    Weather w2
+WHERE
+    w1.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY)
+    AND w1.temperature > w2.temperature;
+```
