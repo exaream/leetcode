@@ -3197,3 +3197,70 @@ func divisorGame(n int) bool {
 	return a > b
 }
 ```
+
+
+## 374. Guess Number Higher or Lower
+
+- https://leetcode.com/problems/guess-number-higher-or-lower/
+- `Binary Search` `Interactive`
+- Runtime 1 ms, Memory 2 MB
+```go
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * func guess(num int) int;
+ */
+func guessNumber(n int) int {
+	var mid int
+	low, high := 1, n
+
+	for {
+		mid = (low + high) / 2
+		hint := guess(mid)
+		switch hint {
+		case 0:
+			return mid
+		case -1:
+			high = mid - 1
+		case 1:
+			low = mid + 1
+		}
+	}
+
+	return mid
+}
+```
+- Runtime 1 ms, Memory 1.8 MB
+```go
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * func guess(num int) int;
+ */
+
+func guessNumber(n int) int {
+	var mid int
+	low, high := 1, n
+
+	for {
+		mid = (low + high) / 2
+		hint := guess(mid)
+		if hint == 0 {
+			return mid
+		}
+		if hint == -1 {
+			high = mid - 1
+			continue
+		}
+		low = mid + 1
+	}
+
+	return mid
+}
+```
