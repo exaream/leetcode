@@ -3213,6 +3213,34 @@ func divisorGame(n int) bool {
  *               otherwise return 0
  * func guess(num int) int;
  */
+
+func guessNumber(n int) int {
+	return binarySearch(0, n)
+}
+
+func binarySearch(low, high int) int {
+	hint := (high-low)/2 + low
+
+	switch guess(hint) {
+	case -1:
+		return binarySearch(low, hint-1)
+	case 1:
+		return binarySearch(hint+1, high)
+	default:
+		return hint
+	}
+}
+```
+- Runtime 1 ms, Memory 1.8 MB
+```go
+/** 
+ * Forward declaration of guess API.
+ * @param  num   your guess
+ * @return 	     -1 if num is higher than the picked number
+ *			      1 if num is lower than the picked number
+ *               otherwise return 0
+ * func guess(num int) int;
+ */
 func guessNumber(n int) int {
 	var mid int
 	low, high := 1, n
@@ -3221,12 +3249,12 @@ func guessNumber(n int) int {
 		mid = (low + high) / 2
 		hint := guess(mid)
 		switch hint {
-		case 0:
-			return mid
 		case -1:
 			high = mid - 1
 		case 1:
 			low = mid + 1
+		default:
+			return mid
 		}
 	}
 
