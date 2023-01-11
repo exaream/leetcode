@@ -3292,3 +3292,60 @@ func guessNumber(n int) int {
 	return mid
 }
 ```
+
+
+## 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+
+- https://leetcode.com/problems/check-if-a-word-occurs-as-a-prefix-of-any-word-in-a-sentence/
+- `String` `String Matching`
+- Runtime 1 ms, Memory 1.9 MB
+```go
+func isPrefixOfWord(sentence string, searchWord string) int {
+	for i, word := range strings.Split(sentence, " ") {
+		if strings.Index(word, searchWord) == 0 {
+			return i + 1
+		}
+	}
+
+	return -1
+}
+```
+- Runtime 1 ms, Memory 1.9 MB
+```go
+func isPrefixOfWord(sentence string, searchWord string) int {
+	for i, word := range strings.Fields(sentence) {
+		if strings.HasPrefix(word, searchWord) {
+			return i + 1
+		}
+	}
+
+	return -1
+}
+```
+- Runtime 1 ms, Memory 1.8 MB
+```go
+func isPrefixOfWord(sentence string, searchWord string) int {
+	for i, word := range strings.Split(sentence, " ") {
+		if strings.HasPrefix(word, searchWord) {
+			return i + 1
+		}
+	}
+
+	return -1
+}
+```
+- Runtime 1 ms, Memory 1.8 MB
+```go
+func isPrefixOfWord(sentence string, searchWord string) int {
+	length := len(searchWord)
+	for i, word := range strings.Split(sentence, " ") {
+		if len(word) < length {
+			continue
+		}
+		if word[:length] == searchWord {
+			return i + 1
+		}
+	}
+	return -1
+}
+```
