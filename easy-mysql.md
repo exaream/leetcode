@@ -648,3 +648,21 @@ WHERE
     w1.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY)
     AND w1.temperature > w2.temperature;
 ```
+
+
+## 1693. Daily Leads and Partners
+
+- https://leetcode.com/problems/daily-leads-and-partners/
+- Runtime 530 ms
+```sql
+SELECT
+    date_id,
+    make_name,
+    COUNT(DISTINCT(lead_id)) AS unique_leads,
+    COUNT(DISTINCT(partner_id)) AS unique_partners
+FROM
+    DailySales
+GROUP BY
+    date_id,
+    make_name;
+```
