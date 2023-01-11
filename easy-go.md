@@ -3349,3 +3349,15 @@ func isPrefixOfWord(sentence string, searchWord string) int {
 	return -1
 }
 ```
+
+
+## 292. Nim Game
+
+- https://leetcode.com/problems/nim-game/
+- `Math` `Brainteaser` `Game Theory`
+- Runtime 1 ms, Memory 1.9 MB
+```go
+func canWinNim(n int) bool {
+    return n % 4 != 0
+}
+```
