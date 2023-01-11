@@ -683,3 +683,45 @@ GROUP BY
 ORDER BY
     user_id;
 ```
+
+## 1890. The Latest Login in 2020
+
+- https://leetcode.com/problems/the-latest-login-in-2020/
+- Runtime 1121 ms
+```sql
+SELECT
+    user_id,
+    MAX(time_stamp) AS last_stamp
+FROM
+    Logins
+WHERE
+    time_stamp BETWEEN '2020-01-01 00:00:00'
+    AND '2020-12-31 23:59:59'
+GROUP BY
+    user_id;
+```
+- Runtime 817 ms
+```sql
+-- Note that INDEX will not work if you use a function on the left-hand side of the WHERE clause.
+SELECT
+    user_id,
+    MAX(time_stamp) AS last_stamp
+FROM
+    Logins
+WHERE
+    YEAR(time_stamp) = 2020
+GROUP BY
+    user_id;
+```
+- Runtime 710 ms
+```sql
+SELECT
+    user_id,
+    MAX(time_stamp) AS last_stamp
+FROM
+    Logins
+WHERE
+    time_stamp LIKE '2020%'
+GROUP BY
+    user_id;
+```
