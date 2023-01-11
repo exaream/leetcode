@@ -666,3 +666,20 @@ GROUP BY
     date_id,
     make_name;
 ```
+
+
+## 1729. Find Followers Count
+
+- https://leetcode.com/problems/find-followers-count/
+- Runtime 628 ms
+```sql
+SELECT
+    user_id,
+    COUNT(follower_id) AS followers_count
+FROM
+    Followers
+GROUP BY
+    user_id
+ORDER BY
+    user_id;
+```
