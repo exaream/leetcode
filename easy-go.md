@@ -3427,3 +3427,36 @@ func getConcatenation(nums []int) []int {
 	return ans
 }
 ```
+
+
+## 1108. Defanging an IP Address
+
+- https://leetcode.com/problems/defanging-an-ip-address/
+- `String`
+- Runtime 1 ms, Memory 1.9 MB
+```go
+func defangIPaddr(address string) string {
+	return strings.ReplaceAll(address, ".", "[.]")
+}
+```
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func defangIPaddr(address string) string {
+	strs := strings.Split(address, ".")
+	return strings.Join(strs, "[.]")
+}
+```
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func defangIPaddr(address string) string {
+	ans := ""
+	for _, r := range address {
+		if r == '.' {
+			ans += "[.]"
+		} else {
+			ans += string(r)
+		}
+	}
+	return ans
+}
+```
