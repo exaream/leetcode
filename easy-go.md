@@ -3361,3 +3361,40 @@ func canWinNim(n int) bool {
     return n % 4 != 0
 }
 ```
+
+
+## 561. Array Partition
+
+- https://leetcode.com/problems/array-partition/
+- `Array` `Greedy` `Sorting` `Counting Sort`
+- Runtime 4195 ms, Memory 6.6 MB
+```go
+func arrayPairSum(nums []int) int {
+	length := len(nums)
+	for i := 0; i < length-1; i++ {
+		for j := i + 1; j < length; j++ {
+			if nums[j] < nums[i] {
+				nums[j], nums[i] = nums[i], nums[j]
+			}
+		}
+	}
+
+	sum := 0
+	for i := 0; i < length; i += 2 {
+		sum += nums[i]
+	}
+
+	return sum
+}
+```
+- Runtime 59 ms, Memory 6.9 MB
+```go
+func arrayPairSum(nums []int) int {
+	sort.Ints(nums)
+	sum := 0
+	for i := 0; i < len(nums); i += 2 {
+		sum += nums[i]
+	}
+	return sum
+}
+```
