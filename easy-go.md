@@ -3502,3 +3502,49 @@ func numJewelsInStones(jewels string, stones string) int {
 	return ans
 }
 ```
+
+
+## 338. Counting Bits
+
+- https://leetcode.com/problems/counting-bits/
+- Runtime 6 ms, Memory 4.5 MB
+```go
+func countBits(n int) []int {
+	ans := make([]int, n+1)
+
+	for i := 0; i <= n; i++ {
+		ans[i] = ans[i>>1] + i&1
+	}
+
+	return ans
+}
+```
+- Runtime 3 ms, Memory 4.6 MB
+```go
+func countBits(n int) []int {
+	ans := make([]int, n+1)
+	offset := 1
+
+	for i := 1; i <= n; i++ {
+		if offset*2 == i {
+			offset = i
+		}
+		ans[i] = 1 + ans[i-offset]
+	}
+
+	return ans
+}
+```
+- Runtime 3 ms, Memory 4.5 MB
+```go
+func countBits(n int) []int {
+	ans := make([]int, n+1)
+	ans[0] = 0
+
+	for i := 1; i <= n; i++ {
+		ans[i] = ans[i/2] + i%2
+	}
+
+	return ans
+}
+```
