@@ -3460,3 +3460,45 @@ func defangIPaddr(address string) string {
 	return ans
 }
 ```
+
+
+## 771. Jewels and Stones
+
+- https://leetcode.com/problems/jewels-and-stones/
+- `Hash Table` `String`
+- Runtime 2 ms, Memory 1.9 MB
+```go
+func numJewelsInStones(jewels string, stones string) int {
+	m := make(map[rune]bool, len(jewels))
+	for _, j := range jewels {
+		m[j] = true
+	}
+
+	ans := 0
+	for _, s := range stones {
+		if m[s] {
+			ans++
+		}
+	}
+
+	return ans
+}
+```
+- Runtime 0 ms, Memory 1.9 MB
+```go
+func numJewelsInStones(jewels string, stones string) int {
+	m := make(map[rune]struct{}, len(jewels))
+	for _, j := range jewels {
+		m[j] = struct{}{}
+	}
+
+	ans := 0
+	for _, s := range stones {
+		if _, ok := m[s]; ok {
+			ans++
+		}
+	}
+
+	return ans
+}
+```
