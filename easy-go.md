@@ -750,6 +750,7 @@ func isPalindrome(s string) bool {
 			return false
 		}
 	}
+}
 ```
 
 
@@ -1437,13 +1438,6 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 
 - Runtime 35 ms, Memory 7.1 MB
 ```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
