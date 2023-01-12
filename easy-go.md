@@ -750,6 +750,7 @@ func isPalindrome(s string) bool {
 			return false
 		}
 	}
+}
 ```
 
 
@@ -1437,13 +1438,6 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 
 - Runtime 35 ms, Memory 7.1 MB
 ```go
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -3396,5 +3390,40 @@ func arrayPairSum(nums []int) int {
 		sum += nums[i]
 	}
 	return sum
+}
+```
+
+
+## 1929. Concatenation of Array
+
+- https://leetcode.com/problems/concatenation-of-array/
+- `Array`
+- Runtime 8 ms, Memory 6.2 MB
+```go
+func getConcatenation(nums []int) []int {
+	return append(nums, nums...)
+}
+```
+- Runtime 8 ms, Memory 6.2 MB
+```go
+func getConcatenation(nums []int) []int {
+	ans := make([]int, len(nums)*2)
+	copy(ans[:len(nums)], nums)
+	copy(ans[len(nums):], nums)
+	return ans
+}
+```
+- Runtime 8 ms, Memory 6.2 MB
+```go
+func getConcatenation(nums []int) []int {
+	length := len(nums)
+	ans := make([]int, length*2)
+
+	for i := 0; i < length; i++ {
+		ans[i] = nums[i]
+		ans[i+length] = nums[i]
+	}
+
+	return ans
 }
 ```
