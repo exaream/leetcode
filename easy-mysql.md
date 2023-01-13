@@ -740,3 +740,20 @@ FROM
 WHERE
     e.salary > m.salary;
 ```
+
+
+## 182. Duplicate Emails
+
+- https://leetcode.com/problems/duplicate-emails/
+- Runtime 442 ms
+```sql
+SELECT
+    email AS Email
+FROM
+    Person
+GROUP BY
+    email
+HAVING
+    COUNT(id) > 1;
+```
+
