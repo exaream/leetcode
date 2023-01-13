@@ -3548,3 +3548,47 @@ func countBits(n int) []int {
 	return ans
 }
 ```
+
+
+## 9. Palindrome Number
+
+- https://leetcode.com/problems/palindrome-number/
+- `Math`
+- Runtime 16 ms, Memory 4.8 MB
+```go
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+
+	a := strconv.Itoa(x)
+	length := len(a)
+
+	for i := 0; i < length/2; i++ {
+		if a[i] != a[length-i-1] {
+			return false
+		}
+	}
+
+	return true
+}
+```
+- Runtime 12 ms, Memory 4.5 MB
+```go
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+
+	if x < 10 {
+		return true
+	}
+
+	reverse := 0
+	for tmp := x; tmp > 0; tmp /= 10 {
+		reverse = reverse*10 + tmp%10
+	}
+
+	return reverse == x
+}
+```
