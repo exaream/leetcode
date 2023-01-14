@@ -807,3 +807,23 @@ GROUP BY
 HAVING
     COUNT(student) >= 5;
 ```
+
+
+## 620. Not Boring Movies
+
+- https://leetcode.com/problems/not-boring-movies/
+- Runtime 225 ms
+```sql
+SELECT
+    id,
+    movie,
+    description,
+    rating
+FROM
+    Cinema
+WHERE
+    id % 2 = 1
+    AND description != 'boring'
+ORDER BY
+    rating DESC;
+```
