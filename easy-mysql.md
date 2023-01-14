@@ -775,3 +775,19 @@ GROUP BY
 ```
 
 
+## 1587. Bank Account Summary II
+
+- https://leetcode.com/problems/bank-account-summary-ii/
+- Runtime 644 ms
+```sql
+SELECT
+    name,
+    SUM(amount) AS balance
+FROM
+    Users u
+    JOIN Transactions t ON u.account = t.account
+GROUP BY
+    u.account
+HAVING
+    balance > 10000;
+```
