@@ -3507,6 +3507,7 @@ func numJewelsInStones(jewels string, stones string) int {
 ## 338. Counting Bits
 
 - https://leetcode.com/problems/counting-bits/
+- `Dynamic Programming` `Bit Manipulation`
 - Runtime 6 ms, Memory 4.5 MB
 ```go
 func countBits(n int) []int {
