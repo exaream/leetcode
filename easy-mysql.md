@@ -791,3 +791,19 @@ GROUP BY
 HAVING
     balance > 10000;
 ```
+
+
+## 596. Classes More Than 5 Students
+
+- https://leetcode.com/problems/classes-more-than-5-students/
+- Runtime 470 ms
+```go
+SELECT
+    class
+FROM
+    Courses
+GROUP BY
+    class
+HAVING
+    COUNT(student) >= 5;
+```
