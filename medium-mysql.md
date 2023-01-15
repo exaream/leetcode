@@ -166,3 +166,52 @@ FROM
 GROUP BY
     u.user_id;
 ```
+
+
+## 626. Exchange Seats
+
+- https://leetcode.com/problems/exchange-seats/
+- Runtime 331 ms
+```sql
+-- References:
+-- https://leetcode.com/problems/exchange-seats/solutions/127561/exchange-seats/
+SELECT
+    s1.id,
+    -- Set s1.student if s2.student is NULL
+    COALESCE(s2.student, s1.student) AS student
+FROM
+    seat s1
+    -- Bit manipulation expression (id+1)^1-1 can calculate the next id.
+    LEFT JOIN seat s2 ON ((s1.id + 1) ^ 1) - 1 = s2.id
+ORDER BY
+    s1.id;
+```
+- Runtime 314 ms
+```sql
+SELECT
+    ROW_NUMBER() OVER() id,
+    student
+FROM
+    seat
+ORDER BY
+    IF(id % 2 = 0, id - 1, id + 1);
+```
+- Runtime 311 ms
+```sql
+SELECT
+    (
+        CASE
+            -- even
+            WHEN id % 2 = 0 THEN id - 1
+            -- odd
+            WHEN max_num != id THEN id + 1
+            WHEN max_num = id THEN id
+        END
+    ) AS id,
+    student
+FROM
+    seat,
+    (SELECT COUNT(id) AS max_num FROM seat) AS tmp
+ORDER BY
+    id ASC;
+```
