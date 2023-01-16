@@ -338,3 +338,61 @@ FROM
 WHERE
     c.ranking = 1;
 ```
+
+
+## 177. Nth Highest Salary
+
+- https://leetcode.com/problems/nth-highest-salary/
+- Runtime 503 ms
+```sql
+-- Using GROUP BY clause.
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    SET N = N - 1;
+    RETURN (
+        SELECT salary
+        FROM Employee
+        GROUP BY salary
+        ORDER BY salary DESC
+        LIMIT 1 OFFSET N
+    );
+END
+```
+- Runtime 354 ms
+```sql
+-- Using DISTINCT().
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    -- If you set N-1 to another variable
+    -- DECLARE M INT;
+    -- SET M = N - 1;
+    SET N = N - 1;
+    RETURN (
+        SELECT DISTINCT(salary)
+        FROM Employee
+        ORDER BY salary DESC
+        LIMIT 1 OFFSET N
+    );
+END
+```
+- Runtime 350 ms
+```sql
+-- Using Window function, DENSE_RANK().
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    RETURN (
+        SELECT
+            DISTINCT salary
+        FROM
+            (
+                SELECT
+                    salary,
+                    DENSE_RANK() OVER(ORDER BY salary DESC) AS ranking
+                FROM
+                    Employee
+            ) AS sub_select
+        WHERE
+            ranking = N
+    );
+END
+```
