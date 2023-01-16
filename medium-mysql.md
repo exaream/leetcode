@@ -289,3 +289,52 @@ SELECT
 FROM
     Scores;
 ```
+
+
+## 184. Department Highest Salary
+
+- https://leetcode.com/problems/department-highest-salary/
+- Runtime 622 ms
+```sql
+SELECT
+    d.name AS Department,
+    e.name AS Employee,
+    e.salary AS Salary
+FROM
+    Department d
+    INNER JOIN Employee e ON d.id = e.departmentId
+    INNER JOIN (
+        SELECT
+            departmentId,
+            MAX(salary) AS max_salary
+        FROM
+            Employee
+        GROUP BY
+            departmentId
+    ) tmp ON d.id = tmp.departmentId
+WHERE
+    e.salary = tmp.max_salary;
+```
+- Runtime 607 ms
+```sql
+-- Using WITH (Common Table Expressions)
+WITH cte AS (
+    SELECT
+        departmentId,
+        name,
+        salary,
+        RANK() OVER (PARTITION BY departmentId ORDER BY salary DESC) AS ranking
+    FROM
+        Employee
+)
+
+SELECT
+    d.name AS Department,
+    c.name AS Employee,
+    c.salary AS Salary
+FROM
+    cte c
+    INNER JOIN Department d ON c.departmentId = d.id
+WHERE
+    c.ranking = 1;
+```
