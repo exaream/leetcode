@@ -215,3 +215,77 @@ FROM
 ORDER BY
     id ASC;
 ```
+
+
+## 178. Rank Scores
+
+- https://leetcode.com/problems/rank-scores/
+- Runtime 592 ms
+```sql
+-- SEE: https://leetcode.com/problems/rank-scores/solutions/456610/mysql-two-simple-solutions-and-explanations-for-beginners/
+SELECT
+    a.score,
+    COUNT(b.score) AS `rank`
+FROM
+    Scores a,
+    (SELECT DISTINCT(score) FROM Scores) b
+WHERE
+    a.score <= b.score
+GROUP BY
+    a.id
+ORDER BY
+    a.score DESC;
+```
+- Runtime 591 ms
+```sql
+WITH a AS (
+    SELECT
+        score,
+        ROW_NUMBER() OVER(ORDER BY score DESC) AS `rank`
+    FROM
+        Scores
+    GROUP BY
+        score
+)
+
+SELECT
+    a.score,
+    a.rank
+FROM
+    a
+    INNER JOIN Scores AS b USING (score)
+ORDER BY
+    score DESC;
+```
+- Runtime 389 ms
+```sql
+-- Using variables.
+SELECT
+    score,
+    CONVERT(`rank`, SIGNED) AS `rank`
+FROM
+    (
+        SELECT
+            score,
+            @num := (CASE WHEN score = @prev THEN @num ELSE @num + 1 END) AS `rank`,
+            @prev := score
+        FROM
+            Scores,
+            (
+                SELECT
+                    @prev := -1,
+                    @num := 0
+            ) init
+        ORDER BY
+            Score DESC
+    ) tmp;
+```
+- Runtime 289 ms
+```sql
+-- Using Window function, DENSE_RANK().
+SELECT
+    score,
+    DENSE_RANK() OVER (ORDER BY score DESC) AS `rank`
+FROM
+    Scores;
+```
