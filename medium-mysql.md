@@ -404,7 +404,7 @@ END
 - Runtime 487 ms
 ```sql
 SELECT
-    DISTINCT(num) AS ConsecutiveNums
+    DISTINCT(a.num) AS ConsecutiveNums
 FROM
     Logs a
 WHERE
