@@ -396,3 +396,31 @@ BEGIN
     );
 END
 ```
+
+
+## 180. Consecutive Numbers
+
+- https://leetcode.com/problems/consecutive-numbers/
+- Runtime 487 ms
+```sql
+SELECT
+    DISTINCT(a.num) AS ConsecutiveNums
+FROM
+    Logs a
+WHERE
+    (a.id, a.num) IN (SELECT b.id + 1, b.num FROM Logs b)
+    AND
+    (a.id, a.num) IN (SELECT c.id + 2, c.num FROM Logs c);
+```
+- Runtime 477 ms
+```sql
+SELECT
+    DISTINCT(a.num) AS ConsecutiveNums
+FROM
+    Logs a
+    INNER JOIN Logs b ON a.id = b.id + 1
+    INNER JOIN Logs c ON b.id = c.id + 1
+WHERE
+    a.num = b.num
+    AND a.num = c.num;
+```
