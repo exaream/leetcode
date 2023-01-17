@@ -3593,3 +3593,31 @@ func isPalindrome(x int) bool {
 	return reverse == x
 }
 ```
+
+
+## 83. Remove Duplicates from Sorted List
+
+- https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+- `Linked List`
+- Runtime 2 ms, Memory 3 MB
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteDuplicates(head *ListNode) *ListNode {
+	cur := head
+	for cur != nil {
+		if cur.Next != nil && cur.Val == cur.Next.Val {
+			cur.Next = cur.Next.Next
+			continue
+		}
+		cur = cur.Next
+	}
+	return head
+}
+```
