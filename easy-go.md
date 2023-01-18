@@ -3621,3 +3621,25 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+
+## 929. Unique Email Addresses
+
+- https://leetcode.com/problems/unique-email-addresses/
+- `Array` `Hash Table` `String`
+- Runtime 4 ms, Memory 5.8 MB
+```go
+func numUniqueEmails(emails []string) int {
+	ans := make(map[string]int, 0)
+
+	for _, email := range emails {
+		tmp := strings.Split(email, "@")
+		local, domain := tmp[0], tmp[1]
+		local = strings.Split(local, "+")[0]
+		local = strings.ReplaceAll(local, ".", "")
+		ans[local+"@"+domain]++
+	}
+
+	return len(ans)
+}
+```
