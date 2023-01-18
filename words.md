@@ -17,6 +17,7 @@
 |occurrence|発生|
 |odd|奇数|
 |permutation|順列|
+|recursion|反復、再帰|
 |singly|単独で|
 |triplet|3つ組、3つ揃い|
 |vertice|頂点|
