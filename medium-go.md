@@ -274,3 +274,35 @@ func detectCycle(head *ListNode) *ListNode {
 	return head
 }
 ```
+
+
+## 763. Partition Labels
+
+- https://leetcode.com/problems/partition-labels/
+- `Hash Table` `Two Pointers` `String` `Greedy`
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func partitionLabels(s string) []int {
+	lastIdxList := make(map[rune]int)
+
+	for i, c := range s {
+		lastIdxList[c] = i
+	}
+
+	var ans []int
+	start, end := 0, 0
+
+    for i, c := range s {
+		if lastIdxList[c] > end {
+			end = lastIdxList[c]
+		}
+
+		if i == end {
+			ans = append(ans, i-start+1)
+			start = i + 1
+		}
+	}
+
+	return ans
+}
+```
