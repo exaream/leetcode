@@ -346,3 +346,30 @@ func subsets(nums []int) [][]int {
 	return ans
 }
 ```
+
+
+## 22. Generate Parentheses
+
+- https://leetcode.com/problems/generate-parentheses/
+- `String` `Dynamic Programming` `Backtracking`
+- Runtime 0 ms, Memory 2.7 MB
+```go
+func generateParenthesis(n int) []string {
+	ans := make(map[int][]string)
+	ans[0] = []string{""}
+	ans[1] = []string{"()"}
+
+	for i := 2; i <= n; i++ {
+		ans[i] = []string{}
+		for j := 0; j <= i; j++ {
+			for _, v1 := range ans[j] {
+				for _, v2 := range ans[i-(j+1)] {
+					ans[i] = append(ans[i], "("+v1+")"+v2)
+				}
+			}
+		}
+	}
+
+	return ans[n]
+}
+```
