@@ -306,3 +306,43 @@ func partitionLabels(s string) []int {
 	return ans
 }
 ```
+
+
+## 78. Subsets
+
+- https://leetcode.com/problems/subsets/
+- `Array` `Backtracking` `Bit Manipulation`
+- Runtime 1 ms, Memory 2.2 MB
+```go
+func subsets(nums []int) [][]int {
+	ans := [][]int{[]int{}}
+
+	for i := 0; i < len(nums); i++ {
+		length := len(ans)
+		for j := 0; j < length; j++ {
+			tmp := []int{}
+			tmp = append(tmp, ans[j]...)
+			tmp = append(tmp, nums[i])
+			ans = append(ans, tmp)
+		}
+	}
+
+	return ans
+}
+```
+- Runtime 0 ms, Memory 2.2 MB
+```go
+func subsets(nums []int) [][]int {
+	ans := [][]int{[]int{}}
+
+	for _, v := range nums {
+		for _, cur := range ans {
+			tmp := append([]int{}, cur...)
+			tmp = append(tmp, v)
+			ans = append(ans, tmp)
+		}
+	}
+
+	return ans
+}
+```
