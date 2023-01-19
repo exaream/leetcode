@@ -174,3 +174,103 @@ func dfs(ans *[][]int, nums []int, start int) {
 	}
 }
 ```
+
+
+## 142. Linked List Cycle II
+
+- https://leetcode.com/problems/linked-list-cycle-ii/
+- `Hash Table` `Linked List` `Two Pointers`
+- Runtime 6 ms, Memory 5 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func detectCycle(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	m := make(map[*ListNode]bool)
+	for head != nil {
+		if m[head] {
+			return head
+		}
+		m[head] = true
+		head = head.Next
+	}
+	
+	return nil
+}
+```
+- Runtime 3 ms, Memory 3.6 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func detectCycle(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	slow, fast := head, head
+
+	for fast.Next != nil && fast.Next.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+		if fast != slow {
+			continue
+		}
+
+		for head != slow {
+			slow, head = slow.Next, head.Next
+		}
+
+		return head
+	}
+
+	return nil
+}
+```
+- Runtime 3 ms, Memory 3.6 MB
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func detectCycle(head *ListNode) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	slow, fast := head, head
+	var isCycle bool
+
+	for fast != nil && fast.Next != nil {
+		slow, fast = slow.Next, fast.Next.Next
+		if slow == fast {
+			isCycle = true
+			break
+		}
+	}
+
+	if !isCycle {
+		return nil
+	}
+
+	for head != slow {
+		slow, head = slow.Next, head.Next
+	}
+
+	return head
+}
+```
