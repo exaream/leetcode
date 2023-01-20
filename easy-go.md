@@ -3675,3 +3675,17 @@ func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	}
 }
 ```
+
+
+## 2469. Convert the Temperature
+
+- https://leetcode.com/problems/convert-the-temperature/
+- `Math`
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func convertTemperature(celsius float64) []float64 {
+	kelvin := celsius + 273.15
+	fahrenheit := celsius*1.80 + 32.00
+	return []float64{kelvin, fahrenheit}
+}
+```
