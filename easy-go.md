@@ -3689,3 +3689,24 @@ func convertTemperature(celsius float64) []float64 {
 	return []float64{kelvin, fahrenheit}
 }
 ```
+
+
+## 2011. Final Value of Variable After Performing Operations
+
+- https://leetcode.com/problems/final-value-of-variable-after-performing-operations/
+- `Array` `String` `Simulation`
+- 0 ms, 3.4 MB
+```go
+func finalValueAfterOperations(operations []string) int {
+	ans := 0
+	for _, v := range operations {
+		switch v {
+		case "++X", "X++":
+			ans++
+		default:
+			ans--
+		}
+	}
+	return ans
+}
+```
