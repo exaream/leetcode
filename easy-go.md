@@ -3675,3 +3675,38 @@ func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	}
 }
 ```
+
+
+## 2469. Convert the Temperature
+
+- https://leetcode.com/problems/convert-the-temperature/
+- `Math`
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func convertTemperature(celsius float64) []float64 {
+	kelvin := celsius + 273.15
+	fahrenheit := celsius*1.80 + 32.00
+	return []float64{kelvin, fahrenheit}
+}
+```
+
+
+## 2011. Final Value of Variable After Performing Operations
+
+- https://leetcode.com/problems/final-value-of-variable-after-performing-operations/
+- `Array` `String` `Simulation`
+- 0 ms, 3.4 MB
+```go
+func finalValueAfterOperations(operations []string) int {
+	ans := 0
+	for _, v := range operations {
+		switch v {
+		case "++X", "X++":
+			ans++
+		default:
+			ans--
+		}
+	}
+	return ans
+}
+```
