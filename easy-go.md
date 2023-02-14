@@ -3710,3 +3710,20 @@ func finalValueAfterOperations(operations []string) int {
 	return ans
 }
 ```
+
+
+## 1470. Shuffle the Array
+
+- https://leetcode.com/problems/shuffle-the-array/
+- `Array`
+- Runtime 0 ms, Memory 3.6 MB
+```go
+func shuffle(nums []int, n int) []int {
+	ans := make([]int, n*2, n*2)
+	for i := 0; i < n; i++ {
+		ans[i*2] = nums[i]
+		ans[i*2+1] = nums[i+n]
+	}
+	return ans
+}
+```
