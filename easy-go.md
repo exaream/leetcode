@@ -3712,6 +3712,62 @@ func finalValueAfterOperations(operations []string) int {
 ```
 
 
+## 1470. Shuffle the Array
+
+- https://leetcode.com/problems/shuffle-the-array/
+- `Array`
+- Runtime 0 ms, Memory 3.6 MB
+```go
+func shuffle(nums []int, n int) []int {
+	ans := make([]int, n*2, n*2)
+	for i := 0; i < n; i++ {
+		ans[i*2] = nums[i]
+		ans[i*2+1] = nums[i+n]
+	}
+	return ans
+}
+```
+
+
+## 2114. Maximum Number of Words Found in Sentences
+
+- https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/
+- `Array` `String`
+- Runtime 0 ms, Memory 4.1 MB
+```go
+func mostWordsFound(sentences []string) int {
+	ans := 0
+	for i := 0; i < len(sentences); i++ {
+		n := len(strings.Split(sentences[i], " "))
+		if n > ans {
+			ans = n
+		}
+	}
+	return ans
+}
+```
+- Runtime 0 ms, Memory 3.5 MB
+```go
+func mostWordsFound(sentences []string) int {
+	ans := 0
+	for _, sentence := range sentences {
+		cnt := 0
+		for _, char := range sentence {
+			if char == ' ' {
+				cnt++
+			}
+		}
+		cnt++
+		if cnt > ans {
+			ans = cnt
+		}
+	}
+
+	return ans
+}
+```
+
+
 ## 168. Excel Sheet Column Title
 
 - https://leetcode.com/problems/excel-sheet-column-title/
