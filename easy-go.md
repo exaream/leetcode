@@ -3710,3 +3710,20 @@ func finalValueAfterOperations(operations []string) int {
 	return ans
 }
 ```
+
+
+## 168. Excel Sheet Column Title
+
+- https://leetcode.com/problems/excel-sheet-column-title/
+- `Math` `String`
+- Runtime 0 ms, Memory 1.9 MB
+```go
+func convertToTitle(columnNumber int) string {
+	var ans string
+	for columnNumber > 0 {
+		ans = string(65+(columnNumber-1)%26) + ans
+		columnNumber = (columnNumber - 1) / 26
+	}
+	return ans
+}
+```
