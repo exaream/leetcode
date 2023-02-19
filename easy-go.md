@@ -3783,3 +3783,24 @@ func convertToTitle(columnNumber int) string {
 	return ans
 }
 ```
+
+
+## 2160. Minimum Sum of Four Digit Number After Splitting Digits
+
+- https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
+- `Math`, `Greedy`, `Sorting`
+- Runtime 1 ms, Memory 1.8 MB
+```go
+func minimumSum(num int) int {
+	arr := []int{}
+
+	for num > 0 {
+		arr = append(arr, num%10)
+		num /= 10
+	}
+
+	sort.Ints(arr)
+
+	return (arr[0]*10 + arr[2]) + (arr[1]*10 + arr[3])
+}
+```
