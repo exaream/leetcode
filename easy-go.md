@@ -3804,3 +3804,30 @@ func minimumSum(num int) int {
 	return (arr[0]*10 + arr[2]) + (arr[1]*10 + arr[3])
 }
 ```
+
+
+## 1431. Kids With the Greatest Number of Candies
+- https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+- `Array`
+- Runtime 0 ms, Memory 2.3 MB
+```go
+func kidsWithCandies(candies []int, extraCandies int) []bool {
+	tmp := make([]int, len(candies))
+	max := candies[0]
+	for i, n := range candies {
+		tmp[i] = n + extraCandies
+		if n > max {
+			max = n
+		}
+	}
+
+	ans := make([]bool, len(candies))
+	for i, n := range tmp {
+		if n >= max {
+			ans[i] = true
+		}
+	}
+
+	return ans
+}
+```
