@@ -874,3 +874,19 @@ FROM
 GROUP BY
     id;
 ```
+
+
+## 1757. Recyclable and Low Fat Products
+
+- https://leetcode.com/problems/recyclable-and-low-fat-products/
+- Runtime 1045 ms
+
+```sql
+SELECT
+    product_id
+FROM
+    Products
+WHERE
+    low_fats = 'Y'
+    AND recyclable = 'Y';
+```
