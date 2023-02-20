@@ -3831,3 +3831,25 @@ func kidsWithCandies(candies []int, extraCandies int) []bool {
 	return ans
 }
 ```
+
+
+## 1281. Subtract the Product and Sum of Digits of an Integer
+
+- https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
+- `Math`
+- Runtime 0 ms, Memory 1.8 MB
+```go
+func subtractProductAndSum(n int) int {
+	product := 1
+    sum := 0
+
+	for n > 0 {
+		v := n % 10
+		product *= v
+		sum += v
+		n /= 10
+	}
+
+	return product - sum
+}
+```
