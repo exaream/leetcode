@@ -3837,35 +3837,17 @@ func kidsWithCandies(candies []int, extraCandies int) []bool {
 
 - https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/
 - `Math`
-- Runtime 1 ms, Memory 1.8 MB
+- Runtime 0 ms, Memory 1.8 MB
 ```go
 func subtractProductAndSum(n int) int {
-	product, sum := 1, 0
+	product := 1
+    sum := 0
 
 	for n > 0 {
 		v := n % 10
 		product *= v
 		sum += v
 		n /= 10
-	}
-
-	return product - sum
-}
-```
-
-- Runtime 0 ms, Memory 2 MB
-```go
-func subtractProductAndSum(n int) int {
-	var list []int
-	for n > 0 {
-		list = append(list, n%10)
-		n /= 10
-	}
-
-	product, sum := 1, 0
-	for _, v := range list {
-		product *= v
-		sum += v
 	}
 
 	return product - sum
