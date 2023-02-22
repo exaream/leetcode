@@ -3853,3 +3853,50 @@ func subtractProductAndSum(n int) int {
 	return product - sum
 }
 ```
+
+
+## 
+
+- https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
+- `Array` `Hash Table` `Sorting` `Counting`
+- Runtime 18 ms, Memory 3.3 MB
+```go
+func smallerNumbersThanCurrent(nums []int) []int {
+	ans := make([]int, len(nums))
+	for i, v1 := range nums {
+		for j, v2 := range nums {
+			if i == j {
+				continue
+			}
+			if v2 < v1 {
+				ans[i]++
+			}
+		}
+	}
+
+	return ans
+}
+```
+
+- Runtime 8ms, Memory 3.6 MB
+```go
+func smallerNumbersThanCurrent(nums []int) []int {
+	m := make(map[int]int)
+	ans := make([]int, len(nums))
+
+	copy(ans, nums)
+	sort.Ints(nums)
+
+	for i, v := range nums {
+		if _, ok := m[v]; !ok {
+			m[v] = i
+		}
+	}
+
+	for i, _ := range ans {
+		ans[i] = m[ans[i]]
+	}
+
+	return ans
+}
+```
