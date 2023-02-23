@@ -3855,7 +3855,7 @@ func subtractProductAndSum(n int) int {
 ```
 
 
-## 
+## 1365. How Many Numbers Are Smaller Than the Current Number
 
 - https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
 - `Array` `Hash Table` `Sorting` `Counting`
@@ -3897,6 +3897,42 @@ func smallerNumbersThanCurrent(nums []int) []int {
 		ans[i] = m[ans[i]]
 	}
 
+	return ans
+}
+```
+
+
+## 1678. Goal Parser Interpretation
+
+- https://leetcode.com/problems/goal-parser-interpretation/
+- `String`
+- Runtime 2 ms, Memory 2 MB 
+```go
+func interpret(command string) string {
+	ans := ""
+	for len(command) > 0 {
+		switch {
+		case command[:1] == "G":
+			ans += "G"
+			command = command[1:]
+		case command[:2] == "()":
+			ans += "o"
+			command = command[2:]
+		case command[:4] == "(al)":
+			ans += "al"
+			command = command[4:]
+		}
+	}
+
+	return string(ans)
+}
+```
+- Runtime 0 ms, Memory 2.1 MB
+```go
+func interpret(command string) string {
+	ans := strings.Replace(command, "()", "o", -1)
+	ans = strings.Replace(ans, "(", "", -1)
+	ans = strings.Replace(ans, ")", "", -1)
 	return ans
 }
 ```
