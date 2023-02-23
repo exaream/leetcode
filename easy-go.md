@@ -3936,3 +3936,25 @@ func interpret(command string) string {
 	return ans
 }
 ```
+
+
+## 2535. Difference Between Element Sum and Digit Sum of an Array
+
+- https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/
+- `Array` `Math`
+- Runtime 3 ms, Memory 5.4 MB
+
+```go
+func differenceOfSum(nums []int) int {
+	elm, dig := 0, 0
+	for _, num := range nums {
+		elm += num
+		for num > 0 {
+			dig += num % 10
+			num /= 10
+		}
+	}
+
+	return elm - dig
+}
+```
