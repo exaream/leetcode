@@ -3958,3 +3958,77 @@ func differenceOfSum(nums []int) int {
 	return elm - dig
 }
 ```
+
+
+## 2574. Left and Right Sum Differences
+
+- https://leetcode.com/problems/left-and-right-sum-differences/
+- `Array` `Prefix Sum`
+- Runtime 9 ms, Memory 5.4 MB
+
+```go
+func leftRigthDifference(nums []int) []int {
+	length := len(nums)
+
+	sum := 0
+	right := make([]int, length)
+	for i := length - 1; i >= 0; i-- {
+		if i == length-1 {
+			continue
+		}
+		sum += nums[i+1]
+		right[i] = sum
+	}
+
+	sum = 0
+	left := make([]int, length)
+	for i := 0; i < length; i++ {
+		if i == 0 {
+			continue
+		}
+		sum += nums[i-1]
+		left[i] = sum
+	}
+
+	ans := make([]int, length)
+	for i := 0; i < length; i++ {
+		ans[i] = abs(left[i] - right[i])
+	}
+
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
+
+- Runtime 4 ms, Memory 5 MB
+
+```go
+func leftRigthDifference(nums []int) []int {
+	left, right := 0, 0
+	for _, n := range nums {
+		right += n
+	}
+
+	ans := make([]int, len(nums))
+	for i, n := range nums {
+		right -= n
+		ans[i] = abs(left - right)
+		left += n
+	}
+
+	return ans
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+```
