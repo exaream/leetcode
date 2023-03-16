@@ -4032,3 +4032,20 @@ func abs(x int) int {
 	return x
 }
 ```
+
+## 1389. Create Target Array in the Given Order
+
+- https://leetcode.com/problems/create-target-array-in-the-given-order/
+- `Array` `Simulation`
+- Runtime 0 ms, Memory 2.2 MB
+
+```go
+func createTargetArray(nums []int, index []int) []int {
+	ans := make([]int, 0, len(nums))
+	for i, v := range index {
+		ans = append(ans[:v+1], ans[v:]...)
+		ans[v] = nums[i]
+	}
+	return ans
+}
+```
