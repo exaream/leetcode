@@ -4049,3 +4049,30 @@ func createTargetArray(nums []int, index []int) []int {
 	return ans
 }
 ```
+
+
+## 392. Is Subsequence
+
+- https://leetcode.com/problems/is-subsequence/
+- `Two Pointers` `String` `Dynamic Programming`
+- Runtime 1 ms, Memory 2 MB
+```go
+func isSubsequence(s string, t string) bool {
+	if len(s) == 0 {
+		return true
+	}
+
+	for i, j := 0, 0; i < len(s) && j < len(t); j++ {
+		if s[i] != t[j] {
+			continue
+		}
+
+		i++
+		if len(s) == i {
+			return true
+		}
+	}
+
+	return false
+}
+```
