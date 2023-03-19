@@ -4049,3 +4049,150 @@ func createTargetArray(nums []int, index []int) []int {
 	return ans
 }
 ```
+
+
+## 392. Is Subsequence
+
+- https://leetcode.com/problems/is-subsequence/
+- `Two Pointers` `String` `Dynamic Programming`
+- Runtime 1 ms, Memory 2 MB
+```go
+func isSubsequence(s string, t string) bool {
+	if len(s) == 0 {
+		return true
+	}
+
+	for i, j := 0, 0; i < len(s) && j < len(t); j++ {
+		if s[i] != t[j] {
+			continue
+		}
+
+		i++
+		if len(s) == i {
+			return true
+		}
+	}
+
+	return false
+}
+```
+
+## 703. Kth Largest Element in a Stream
+
+- https://leetcode.com/problems/kth-largest-element-in-a-stream/
+- `Tree` `Design` `Binary Search Tree` `Heap (Priority Queue)` `Binary Tree` `Data Stream` 
+- Runtime 29 ms, 8.3 MB
+
+```go
+type MinHeap []int
+
+func (h MinHeap) Len() int           { return len(h) }
+func (h MinHeap) Less(i, j int) bool { return h[i] < h[j] }
+func (h MinHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+
+func (h MinHeap) Peek() int {
+	if h.Len() > 0 {
+		return h[0]
+	}
+	return -1
+}
+
+func (h *MinHeap) Push(x interface{}) {
+	*h = append(*h, x.(int))
+}
+
+func (h *MinHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}
+
+type KthLargest struct {
+	k       int
+	minHeap *MinHeap
+}
+
+func Constructor(k int, nums []int) KthLargest {
+	minHeap := &MinHeap{}
+	heap.Init(minHeap)
+
+	out := &KthLargest{
+		k:       k,
+		minHeap: minHeap,
+	}
+
+	for _, val := range nums {
+		out.Add(val)
+	}
+
+	return *out
+}
+
+func (kl *KthLargest) Add(val int) int {
+	if kl.minHeap.Len() < kl.k {
+		heap.Push(kl.minHeap, val)
+	} else if kl.minHeap.Peek() < val {
+		heap.Pop(kl.minHeap)
+		heap.Push(kl.minHeap, val)
+	} // else ignore values <= current min
+
+	return kl.minHeap.Peek()
+}
+```
+
+- Runtime 28 ms, 8.8 MB
+```go
+type KthLargest struct {
+	k    int
+	nums []int
+	heap *intHeap
+}
+
+type intHeap []int
+
+func Constructor(k int, nums []int) KthLargest {
+	h := &intHeap{}
+	heap.Init(h)
+	for _, n := range nums {
+		heap.Push(h, n)
+		if h.Len() > k {
+			heap.Pop(h)
+		}
+	}
+	return KthLargest{k: k, nums: nums, heap: h}
+}
+
+func (this *KthLargest) Add(val int) int {
+	heap.Push(this.heap, val)
+	if this.heap.Len() > this.k {
+		heap.Pop(this.heap)
+	}
+	return (*this.heap)[0]
+}
+
+func (h intHeap) Len() int {
+	return len(h)
+}
+
+func (h intHeap) Less(i, j int) bool {
+	return h[i] < h[j]
+}
+
+func (h intHeap) Swap(i, j int) {
+	h[i], h[j] = h[j], h[i]
+}
+
+func (h *intHeap) Push(x interface{}) {
+	*h = append(*h, x.(int))
+}
+
+func (h *intHeap) Pop() interface{} {
+	old := *h
+	n := len(old)
+	x := old[n-1]
+	*h = old[0 : n-1]
+	return x
+}
+```
