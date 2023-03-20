@@ -4196,3 +4196,39 @@ func (h *intHeap) Pop() interface{} {
 	return x
 }
 ```
+
+
+## 262. Trips and Users
+
+- https://leetcode.com/problems/trips-and-users/
+- Runtime 1140 ms
+```sql
+SELECT 
+  t.request_at AS Day, 
+  ROUND(
+    SUM(CASE WHEN status IN ('cancelled_by_driver', 'cancelled_by_client') THEN 1 ELSE 0 END) / COUNT(t.id), 2
+  ) AS `Cancellation Rate`
+FROM 
+  Trips t 
+  JOIN Users u1 ON t.client_id = u1.users_id AND u1.banned = 'No'
+  JOIN Users u2 ON t.driver_id = u2.users_id AND u2.banned = 'No'
+WHERE 
+  request_at BETWEEN '2013-10-01' AND '2013-10-03'
+GROUP BY 
+  request_at
+```
+
+- Runtime 917 ms
+```sql
+SELECT
+    request_at AS DAY,
+    ROUND(SUM(IF(status != 'completed', 1, 0)) / COUNT(id), 2) AS `Cancellation Rate`
+FROM
+    Trips
+WHERE
+    client_id IN (SELECT users_id FROM Users WHERE banned = 'No')
+    AND driver_id IN (SELECT users_id FROM Users WHERE banned = 'No')
+    AND request_at BETWEEN '2013-10-01' AND '2013-10-03'
+GROUP BY
+    request_at;
+```
