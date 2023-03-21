@@ -4233,3 +4233,28 @@ func decompressRLElist(nums []int) []int {
 	return ans
 }
 ```
+
+
+## 1221. Split a String in Balanced Strings
+
+- https://leetcode.com/problems/split-a-string-in-balanced-strings/
+- `String` `Greedy` `Counting`
+- Runtime 0 ms, Memory 1.9 MB
+```go
+func balancedStringSplit(s string) int {
+	balance, ans := 0, 0
+	for _, r := range s {
+		switch r {
+		case 82: // R: 82 or 'R'
+			balance++
+		case 76: // L: 76 or 'L'
+			balance--
+		}
+		if balance == 0 {
+			ans++
+		}
+	}
+
+	return ans
+}
+```
