@@ -4196,3 +4196,40 @@ func (h *intHeap) Pop() interface{} {
 	return x
 }
 ```
+
+
+## 1313. Decompress Run-Length Encoded List
+
+- https://leetcode.com/problems/decompress-run-length-encoded-list/
+- `Array`
+- Runtime 7 ms, Memory 4.6 MB
+```go
+func decompressRLElist(nums []int) []int {
+	n := 0
+	for i := 0; i < len(nums); i += 2 {
+		n += nums[i]
+	}
+
+	ans := make([]int, 0, n)
+	for i := 0; i < len(nums); i += 2 {
+		for j := 0; j < nums[i]; j++ {
+			ans = append(ans, nums[i+1])
+		}
+	}
+
+	return ans
+}
+```
+- Runtime 0 ms, Memory 6.5 MB
+```go
+func decompressRLElist(nums []int) []int {
+	var ans []int
+	for i := 0; i < len(nums); i += 2 {
+		for j := 0; j < nums[i]; j++ {
+			ans = append(ans, nums[i+1])
+		}
+	}
+
+	return ans
+}
+```
