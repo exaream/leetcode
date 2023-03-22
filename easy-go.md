@@ -4258,3 +4258,19 @@ func balancedStringSplit(s string) int {
 	return ans
 }
 ```
+
+
+## 1528. Shuffle String
+
+- https://leetcode.com/problems/shuffle-string/
+- `Array` `String`
+- Runtime 4 ms, Memory 3.3 MB
+```go
+func restoreString(s string, indices []int) string {
+	tmp := make([]byte, len(indices))
+	for i := 0; i < len(indices); i++ {
+		tmp[indices[i]] = s[i]
+	}
+	return string(tmp)
+}
+```
