@@ -4274,3 +4274,27 @@ func restoreString(s string, indices []int) string {
 	return string(tmp)
 }
 ```
+
+
+## 2194. Cells in a Range on an Excel Sheet
+
+- https://leetcode.com/problems/cells-in-a-range-on-an-excel-sheet/
+- `String`
+- Runtime 3 ms, Memory 3 MB
+```go
+func cellsInRange(s string) []string {
+	col1, col2 := s[0], s[3]
+	row1, row2 := s[1], s[4]
+	colDiff := col2 - col1 + 1
+	rowDiff := row2 - row1 + 1
+	ans := make([]string, colDiff*rowDiff, colDiff*rowDiff)
+	cnt := 0
+	for c := col1; c <= col2; c++ {
+		for r := row1; r <= row2; r++ {
+			ans[cnt] = string(c) + string(r)
+			cnt++
+		}
+	}
+	return ans
+}
+```
