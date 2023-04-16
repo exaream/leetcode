@@ -874,3 +874,40 @@ FROM
 GROUP BY
     id;
 ```
+
+
+## 577. Employee Bonus
+
+- https://leetcode.com/problems/employee-bonus/
+- Runtime 1778 ms
+
+```sql
+SELECT
+  e.name,
+  b.bonus
+FROM
+  Employee e
+  LEFT JOIN Bonus b ON e.empId = b.empId
+WHERE
+  b.bonus < 1000
+  OR b.bonus IS NULL
+```
+
+
+## 610. Triangle Judgement
+
+- https://leetcode.com/problems/triangle-judgement/
+- Runtime 522 ms
+```sql
+SELECT
+  x,
+  y,
+  z,
+  IF(
+      x < (y+z) AND y < (x+z) AND z < (x+y),
+      "Yes",
+      "No"
+    ) AS triangle
+FROM
+  Triangle
+```
