@@ -937,3 +937,18 @@ FROM (
   HAVING COUNT(num) = 1
 ) AS tbl
 ```
+
+
+## 1068. Product Sales Analysis I
+
+- https://leetcode.com/problems/product-sales-analysis-i/
+- Runtime 1925 ms
+```sql
+SELECT
+  p.product_name,
+  s.year,
+  s.price
+FROM
+  Product p
+  INNER JOIN Sales s ON p.product_id = s.product_id
+```
