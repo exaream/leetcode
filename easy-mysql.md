@@ -911,3 +911,29 @@ SELECT
 FROM
   Triangle
 ```
+
+
+## 619. Biggest Single Number
+
+- https://leetcode.com/problems/biggest-single-number/
+- Runtime 792 ms
+```sql
+SELECT (
+  SELECT num
+  FROM MyNumbers
+  GROUP BY num
+  HAVING COUNT(num) = 1
+  ORDER BY num DESC LIMIT 1
+) as num
+```
+
+- Runtime 601 ms
+```sql
+SELECT MAX(num) AS num
+FROM (
+  SELECT num
+  FROM MyNumbers
+  GROUP BY num
+  HAVING COUNT(num) = 1
+) AS tbl
+```
