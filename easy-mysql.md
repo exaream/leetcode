@@ -892,22 +892,3 @@ WHERE
   b.bonus < 1000
   OR b.bonus IS NULL
 ```
-
-
-## 610. Triangle Judgement
-
-- https://leetcode.com/problems/triangle-judgement/
-- Runtime 522 ms
-```sql
-SELECT
-  x,
-  y,
-  z,
-  IF(
-      x < (y+z) AND y < (x+z) AND z < (x+y),
-      "Yes",
-      "No"
-    ) AS triangle
-FROM
-  Triangle
-```
